@@ -8,28 +8,28 @@
     
     <url>
         <loc>http://pengxiaoyong.cn/about/</loc>
-        <lastmod>2018-10-22T04:25:57.254Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>http://pengxiaoyong.cn/archive/</loc>
-        <lastmod>2018-09-17T12:30:35.338Z</lastmod>
+        <lastmod>2019-11-07T12:43:55.365Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://pengxiaoyong.cn/tags/</loc>
-        <lastmod>2018-09-16T11:50:47.037Z</lastmod>
+        <lastmod>2019-11-07T04:49:33.565Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://pengxiaoyong.cn/archive/</loc>
+        <lastmod>2019-11-07T04:49:33.420Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://pengxiaoyong.cn/404.html</loc>
-        <lastmod>2018-09-16T11:50:46.959Z</lastmod>
+        <lastmod>2019-11-07T04:49:33.405Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
