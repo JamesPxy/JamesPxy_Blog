@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Just try how to write a blog - 彭晓勇 | Blog
+          探讨Android中View的getWidth( )和getMeasuredWidth( )的区别 - 彭晓勇 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://pengxiaoyong.cn/article/Just-try-how-to-write-a-blog/">
+    <link rel="canonical" href="http://pengxiaoyong.cn/Android/Android View中的getWidth和getMeasuredWidth的区别/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -88,14 +88,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Android" title="Android">Android</a>
+                              <a class="tag" href="/tags/#源码分析" title="源码分析">源码分析</a>
                             
                         </div>
-                        <h1>Just try how to write a blog</h1>
+                        <h1>探讨Android中View的getWidth( )和getMeasuredWidth( )的区别</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by JamesPxy on
-                            2019-11-06
+                            2019-03-15
                         </span>
                     </div>
                 
@@ -212,15 +212,39 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="1some-hexo-command">1.Some hexo command:</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"&lt;post name&gt;"</span> <span class="comment"># you can change post to another layout if you want</span></span><br><span class="line">hexo clean &amp;&amp; hexo generate <span class="comment"># generate the static file</span></span><br><span class="line">hexo server <span class="comment"># run hexo in local environment</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hexo will push the static files automatically into the specific branch(gh-pages) of your repo!</span></span><br><span class="line">hexo deploy </span><br><span class="line"></span><br><span class="line">hexo clean <span class="comment">#为清除缓存</span></span><br><span class="line">hexo g <span class="comment">#为生成本地文件夹</span></span><br><span class="line">hexo d  <span class="comment">#为发布到github page上</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hexo <span class="built_in">help</span>:</span><br><span class="line">-----------</span><br><span class="line">  clean     Remove generated files and cache.</span><br><span class="line">  config    Get or <span class="built_in">set</span> configurations.</span><br><span class="line">  deploy    Deploy your website.</span><br><span class="line">  generate  Generate static files.</span><br><span class="line">  <span class="built_in">help</span>      Get <span class="built_in">help</span> on a <span class="built_in">command</span>.</span><br><span class="line">  init      Create a new Hexo folder.</span><br><span class="line">  list      List the information of the site</span><br><span class="line">  migrate   Migrate your site from other system to Hexo.</span><br><span class="line">  new       Create a new post.</span><br><span class="line">  publish   Moves a draft post from _drafts to _posts folder.</span><br><span class="line">  render    Render files with renderer plugins.</span><br><span class="line">  server    Start the server.</span><br><span class="line">  version   Display version information.</span><br></pre></td></tr></table></figure>
-<h2 id="11-this-sub-title-javascript">1.1 this sub title  javascript</h2>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>(<span class="string">"https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        anchors.options = &#123;</span><br><span class="line">          visible: <span class="string">'hover'</span>,</span><br><span class="line">          placement: <span class="string">'left'</span>,</span><br><span class="line">          icon: ℬ <span class="comment">// this is the header anchor "unicode" icon</span></span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="2test-java">2.test java</h1>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">       setContentView(R.layout.activity_main);</span><br><span class="line">       BottomNavigationView navView = findViewById(R.id.nav_view);</span><br><span class="line">       mTextMessage = findViewById(R.id.message);</span><br><span class="line">       navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="3测试一下图片">3.测试一下图片</h1>
-<p>Have fun ^_^<br>
-<img src="/img/icon_wechat.png" alt="home_posts_tag-true"></p>
+                <h3 id="1-先上一张图-view核心方法调用顺序应该是">1. 先上一张图 View核心方法调用顺序应该是</h3>
+<p>构造函数——-&gt;onMeasure——-&gt;onSizeChanged——-&gt;onLayout——-&gt;onDraw——-&gt; onMeasure——-&gt;onLayout——-&gt;onDraw</p>
+<p><img src="/img/old_blog/view_construtor.jpg" alt="view_construtor"></p>
+<h3 id="2-view-getmeasuredwidth-源码剖析">2. View getMeasuredWidth 源码剖析：</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getMeasuredWidth</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> mMeasuredWidth &amp; MEASURED_SIZE_MASK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MEASURED_SIZE_MASK = <span class="number">0x00ffffff</span>;</span><br></pre></td></tr></table></figure>
+<p>换算成二进制是：111111111111111111111111，在与运算中，1 与任何数字进行与运算的结果都取决于对方。所以，mMeasuredWidth 变量值决定了 getMeasuredWidth() 方法的返回值。进一步查看，mMeasuredWidth 的赋值在这里：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setMeasuredDimensionRaw</span><span class="params">(<span class="keyword">int</span> measuredWidth, <span class="keyword">int</span> measuredHeight)</span> </span>&#123;</span><br><span class="line">    mMeasuredWidth = measuredWidth;</span><br><span class="line">    mMeasuredHeight = measuredHeight;</span><br><span class="line">    mPrivateFlags |= PFLAG_MEASURED_DIMENSION_SET;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但这个方法是私有方法，在 View 类内部调用，在setMeasuredDimension()被调用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setMeasuredDimension</span><span class="params">(<span class="keyword">int</span> measuredWidth, <span class="keyword">int</span> measuredHeight)</span> </span>&#123;</span><br><span class="line">	 <span class="keyword">boolean</span> optical = isLayoutModeOptical(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">// 只展示核心代码</span></span><br><span class="line">    ...</span><br><span class="line">	setMeasuredDimensionRaw(measuredWidth, measuredHeight);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>进一步看setMeasuredDimension()在onMeasure()方法中被调用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">	setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),</span><br><span class="line">	getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出：mMeasuredWidth 的赋值，即 getMeasuredWidth() 的取值最终来源于 setMeasuredDimension() 方法调用时传递的参数！在自定义 View 时测量并设置 View 宽高时经常用到。通常在 onMeasure() 方法中设置，可以翻看一下系统中的 TextView、LinearLayout 等方法，都是如此。</p>
+<h3 id="3-getwidth-源码剖析">3. getWidth 源码剖析</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getWidth</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> mRight - mLeft;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">mRight、mLeft 变量分别表示 View 相对父容器的左右边缘位置，并且二者的赋值是通过 setFrame() 方法赋值：</span><br><span class="line">    <span class="comment">// Assign a size and position to this view.</span></span><br><span class="line">    <span class="comment">//This is called from layout.</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">setFrame</span><span class="params">(<span class="keyword">int</span> left, <span class="keyword">int</span> top, <span class="keyword">int</span> right, <span class="keyword">int</span> bottom)</span> </span>&#123;  </span><br><span class="line">    		<span class="comment">// 只展示核心代码</span></span><br><span class="line">    		...</span><br><span class="line">    	    mLeft = left;</span><br><span class="line">    	    mTop = top;</span><br><span class="line">    	    mRight = right;</span><br><span class="line">    	    mBottom = bottom;</span><br><span class="line">    	    ...</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>从注释中可以看到该方法被layout()调用:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">layout</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> t, <span class="keyword">int</span> r, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">   ... </span><br><span class="line">   <span class="keyword">boolean</span> changed = isLayoutModeOptical(mParent) ?</span><br><span class="line">   setOpticalFrame(l, t, r, b) : setFrame(l, t, r, b);</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中setOpticalFrame()内部也是调用setFrame()方法</p>
+<p>所以，getWidth() 的取值最终来源于 layout() 方法的调用。通常，layout() 方法在 parent 中被调用，来确定 child views 在父容器中的位置，一般在自定义 ViewGroup 的 onLayout() 方法中调用</p>
+<h3 id="4-分析完源码可以知道">4. 分析完源码，可以知道：</h3>
+<ul>
+<li>measuredWidth 值在 View 的 measure 阶段决定的，是通过 setMeasuredDimension() 方法赋值的；width 值在 layout 阶段决定的，是由 layout() 方法决定的。<br>
+有一点需要注意，通常来讲，View 的 width 和 height 是由 View 本身和 parent 容器共同决定的。</li>
+<li>getMeasuredWidth()获取的是view原始的大小，也就是这个view在XML文件中配置或者是代码中设置的大小。getWidth()获取的是这个view最终显示的大小，这个大小有可能等于原始的大小也有可能不等于原始大小。<br>
+一般情况下，getWidth() 与 getMeasuredWidth() 的返回值是相同的。</li>
+<li>注意在自定义View或者ViewGroup中，在 onLayout() 方法中通过 child.getMeasuredWidth() 方法获取 child views 的原始大小来设置其显示区域，不要用getWidth()，有可能获得值为0（诸如 LinearLayout 之类的系统中的 ViewGroup 都是这么做的；<br>
+除此之外，我们都可以通过 getWidth() 方法获取 View 的实际显示宽度。</li>
+</ul>
+<h3 id="5-总结">5. 总结：</h3>
+<ol>
+<li>getMeasuredWidth方法获得的值是setMeasuredDimension方法设置的值，它的值在measure方法运行后就会确定</li>
+<li>getWidth方法获得是layout方法中传递的四个参数中的mRight-mLeft，它的值是在layout方法运行后确定的</li>
+<li>一般情况下在onLayout方法中使用getMeasuredWidth方法，而在除onLayout方法之外的地方用getWidth方法。</li>
+</ol>
 
                 
 
@@ -229,12 +253,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/深入理解JVM垃圾回收算法/" data-toggle="tooltip" data-placement="top" title="深入理解JVM垃圾回收算法">&larr; Previous Post</a>
+                            <a href="/article/Just-try-how-to-write-a-blog/" data-toggle="tooltip" data-placement="top" title="Just try how to write a blog">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/Android/Android View中的getWidth和getMeasuredWidth的区别/" data-toggle="tooltip" data-placement="top" title="探讨Android中View的getWidth( )和getMeasuredWidth( )的区别">Next Post &rarr;</a>
+                            <a href="/Android/开发经验总结/" data-toggle="tooltip" data-placement="top" title="开发经验总结">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -278,24 +302,6 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-  
-    <style>
-      span.toc-nav-number{
-        display: none
-      }
-    </style>
-  
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#1some-hexo-command"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1.Some hexo command:</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-this-sub-title-javascript"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1.1 this sub title  javascript</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#2test-java"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2.test java</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#3测试一下图片"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3.&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#x56FE;&#x7247;</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
                 
             <!-- Sidebar Container -->
             <div class="
@@ -310,7 +316,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Android" title="Android">Android</a>
+                          <a class="tag" href="/tags/#源码分析" title="源码分析">源码分析</a>
                         
                     </div>
                 </section>

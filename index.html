@@ -21,23 +21,23 @@
     <link rel="canonical" href="http://pengxiaoyong.cn/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- Custom CSS --> 
-    <link rel="stylesheet" href="/css/beantech.min.css">
+    <link rel="stylesheet" href="css/beantech.min.css">
 
-    <link rel="stylesheet" href="/css/donate.css">
+    <link rel="stylesheet" href="css/donate.css">
     
     <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="css/highlight.css">
 
-    <link rel="stylesheet" href="/css/widget.css">
+    <link rel="stylesheet" href="css/widget.css">
 
-    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="css/rocket.css">
 
-    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="css/signature.css">
 
-    <link rel="stylesheet" href="/css/toc.css">
+    <link rel="stylesheet" href="css/toc.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -134,13 +134,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -149,6 +142,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -267,7 +267,7 @@
         </h3>
         <div class="post-content-preview">
             1.Some hexo command:
-12345678910111213141516171819202122hexo new post "&lt;post name&gt;" # you can change post to another layout if you wanthexo clean &amp;&amp; hexo generate # generate the stati......
+123456789101112131415161718192021222324252627hexo new post "&lt;post name&gt;" # you can change post to another layout if you wanthexo clean &amp;&amp; hexo generate # generate......
         </div>
     </a>
     
@@ -278,6 +278,117 @@
         <div class="tags">
             
               <a href="/tags/#Android" title="Android">Android</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/Android View中的getWidth和getMeasuredWidth的区别/">
+        <h2 class="post-title">
+            
+                <i class="fa fa-thumb-tack" style="color:#F4711F" ></i>
+                <!-- <i class="fa fa-thumb-tack" style="color:#F89E8C" ></i> -->
+                <!-- <i class="fa fa-thumb-tack" style="color:#1CB7ED" ></i> -->
+                <font color=#F4711F>置顶</font>
+                <!-- <font color=#F89E8C>置顶</font>  -->
+                <!-- <font color=#1CB7ED>置顶</font>  -->
+                                 
+            探讨Android中View的getWidth( )和getMeasuredWidth( )的区别
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1. 先上一张图 View核心方法调用顺序应该是
+构造函数——-&gt;onMeasure——-&gt;onSizeChanged——-&gt;onLayout——-&gt;onDraw——-&gt; onMeasure——-&gt;onLayout——-&gt;onDraw
+
+2. View getMeasuredWidth 源码剖析：
+12345public final int getM......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2019-03-15
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#源码分析" title="源码分析">源码分析</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/开发经验总结/">
+        <h2 class="post-title">
+                                 
+            开发经验总结
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            
+content
+{:toc}
+
+1.获取anr 文件指令
+  adb pull /data/anr/traces.txt
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2019-03-15
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#经验" title="经验">经验</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/Git使用小结/">
+        <h2 class="post-title">
+                                 
+            Git使用小结
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            
+content
+{:toc}
+
+1.Git常用指令：
+1.git  全局配置  --loacl  --system --global
+ $ git config --global user.name author #将用户名设为author
+ $ git config --global user.email author@corpmail.com #将用户邮箱设为author@corpma......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2019-03-04
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Git" title="Git">Git</a>
             
         </div>
     
@@ -322,6 +433,40 @@ Install Node.js  and Git
 </div>
 <hr>
 
+<div class="post-preview">
+
+    <a href="/article/I-ve-Interviewed-100s-of-Candidates-and-the-Ones-I-Hire-Always-Do-This/">
+        <h2 class="post-title">
+                                 
+            I’ve Interviewed 100s of Candidates and the Ones I Hire Always Do This
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            面试是很有压力的一件事，通常，你只有不到一个小时的时间来使面试官相信你是所有候选者中最合适那一个。这个面试官很有可能还会在当天面试其他的候选者并且还有其他的事情要做。那你如何才能够脱颖而出呢。
+1. 充分的准备，知道哪些事情是想要让面试官知道的。
+通过上百个我做组织的面试者们，我发现最合适的那些面试者永远都是表达最清晰的。
+所有人都知道充足的准备是必要的，但是如何准备是极其重要的，许多人会准......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2015-12-20
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#随笔" title="随笔">随笔</a>
+            
+              <a href="/tags/#Interview" title="Interview">Interview</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
 
 
 <!-- Pager -->
@@ -359,15 +504,75 @@ Install Node.js  and Git
     <div class="tags">
         
             
-            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
-            
-        
-            
             <a href="/tags/#Android" title="Android" rel="1">Android</a>
             
         
             
             <a href="/tags/#Java" title="Java" rel="1">Java</a>
+            
+        
+            
+            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
+            
+        
+            
+            <a href="/tags/#随笔" title="随笔" rel="1">随笔</a>
+            
+        
+            
+            <a href="/tags/#Interview" title="Interview" rel="1">Interview</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#Git" title="Git" rel="1">Git</a>
+            
+        
+            
+            <a href="/tags/#经验" title="经验" rel="1">经验</a>
+            
+        
+            
+            <a href="/tags/#源码分析" title="源码分析" rel="1">源码分析</a>
             
         
     </div>
@@ -424,15 +629,23 @@ Install Node.js  and Git
     <ul>
       
         <li>
-          <a href="/article/深入理解JVM垃圾回收算法/">深入理解JVM垃圾回收算法</a>
+          <a href="article/深入理解JVM垃圾回收算法/">深入理解JVM垃圾回收算法</a>
         </li>
       
         <li>
-          <a href="/article/Just-try-how-to-write-a-blog/">Just try how to write a blog</a>
+          <a href="article/Just-try-how-to-write-a-blog/">Just try how to write a blog</a>
         </li>
       
         <li>
-          <a href="/article/hexo-theme-huweihuang/">How to use  [Hexo] Theme</a>
+          <a href="Android/Android View中的getWidth和getMeasuredWidth的区别/">探讨Android中View的getWidth( )和getMeasuredWidth( )的区别</a>
+        </li>
+      
+        <li>
+          <a href="Android/开发经验总结/">开发经验总结</a>
+        </li>
+      
+        <li>
+          <a href="Android/Git使用小结/">Git使用小结</a>
         </li>
       
     </ul>
@@ -455,7 +668,7 @@ Install Node.js  and Git
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/03/">March 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
@@ -516,13 +729,13 @@ Install Node.js  and Git
 </footer>
 
 <!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/js/hux-blog.min.js"></script>
+<script src="js/hux-blog.min.js"></script>
 
 
 <!-- async load function -->

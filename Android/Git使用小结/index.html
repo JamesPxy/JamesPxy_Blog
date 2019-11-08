@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Just try how to write a blog - 彭晓勇 | Blog
+          Git使用小结 - 彭晓勇 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://pengxiaoyong.cn/article/Just-try-how-to-write-a-blog/">
+    <link rel="canonical" href="http://pengxiaoyong.cn/Android/Git使用小结/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -88,14 +88,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Android" title="Android">Android</a>
+                              <a class="tag" href="/tags/#Git" title="Git">Git</a>
                             
                         </div>
-                        <h1>Just try how to write a blog</h1>
+                        <h1>Git使用小结</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by JamesPxy on
-                            2019-11-06
+                            2019-03-04
                         </span>
                     </div>
                 
@@ -212,15 +212,53 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="1some-hexo-command">1.Some hexo command:</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"&lt;post name&gt;"</span> <span class="comment"># you can change post to another layout if you want</span></span><br><span class="line">hexo clean &amp;&amp; hexo generate <span class="comment"># generate the static file</span></span><br><span class="line">hexo server <span class="comment"># run hexo in local environment</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hexo will push the static files automatically into the specific branch(gh-pages) of your repo!</span></span><br><span class="line">hexo deploy </span><br><span class="line"></span><br><span class="line">hexo clean <span class="comment">#为清除缓存</span></span><br><span class="line">hexo g <span class="comment">#为生成本地文件夹</span></span><br><span class="line">hexo d  <span class="comment">#为发布到github page上</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hexo <span class="built_in">help</span>:</span><br><span class="line">-----------</span><br><span class="line">  clean     Remove generated files and cache.</span><br><span class="line">  config    Get or <span class="built_in">set</span> configurations.</span><br><span class="line">  deploy    Deploy your website.</span><br><span class="line">  generate  Generate static files.</span><br><span class="line">  <span class="built_in">help</span>      Get <span class="built_in">help</span> on a <span class="built_in">command</span>.</span><br><span class="line">  init      Create a new Hexo folder.</span><br><span class="line">  list      List the information of the site</span><br><span class="line">  migrate   Migrate your site from other system to Hexo.</span><br><span class="line">  new       Create a new post.</span><br><span class="line">  publish   Moves a draft post from _drafts to _posts folder.</span><br><span class="line">  render    Render files with renderer plugins.</span><br><span class="line">  server    Start the server.</span><br><span class="line">  version   Display version information.</span><br></pre></td></tr></table></figure>
-<h2 id="11-this-sub-title-javascript">1.1 this sub title  javascript</h2>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>(<span class="string">"https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        anchors.options = &#123;</span><br><span class="line">          visible: <span class="string">'hover'</span>,</span><br><span class="line">          placement: <span class="string">'left'</span>,</span><br><span class="line">          icon: ℬ <span class="comment">// this is the header anchor "unicode" icon</span></span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="2test-java">2.test java</h1>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">       setContentView(R.layout.activity_main);</span><br><span class="line">       BottomNavigationView navView = findViewById(R.id.nav_view);</span><br><span class="line">       mTextMessage = findViewById(R.id.message);</span><br><span class="line">       navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="3测试一下图片">3.测试一下图片</h1>
-<p>Have fun ^_^<br>
-<img src="/img/icon_wechat.png" alt="home_posts_tag-true"></p>
+                <ul>
+<li>content<br>
+{:toc}</li>
+</ul>
+<h1 id="1git常用指令">1.Git常用指令：</h1>
+<h2 id="1git-全局配置-loacl-system-global">1.git  全局配置  --loacl  --system --global</h2>
+<pre><code> $ git config --global user.name author #将用户名设为author
+ $ git config --global user.email author@corpmail.com #将用户邮箱设为author@corpmail.com
+</code></pre>
+<h2 id="2新增合并提交">2.新增合并提交：</h2>
+<pre><code>$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend
+最终你只会有一个提交 - 第二次提交将代替第一次提交的结果。
+</code></pre>
+<h2 id="3git-中创建一个附注标签">3.Git 中创建一个附注标签</h2>
+<pre><code>$ git tag -a v1.4 -m 'my version 1.4'
+$ git tag v0.1 v1.3 v1.4 -m 选项指定了一条将会存储在标签中的信息。
+</code></pre>
+<h2 id="4-分支创建">4、分支创建</h2>
+<pre><code>$ git branch testing
+</code></pre>
+<p>分支切换</p>
+<pre><code>$ git checkout testing
+</code></pre>
+<p>分支的合并</p>
+<pre><code>$ git checkout master
+//*Switched to branch 'master'
+$ git merge iss53
+/*Merge made by the 'recursive' strategy.
+index.html |    1 +
+1 file changed, 1 insertion(+)*/
+</code></pre>
+<h2 id="5拉取分支">5.拉取分支</h2>
+<pre><code>当 git fetch 命令从服务器上抓取本地没有的数据时，它并不会修改工作目录中的内容。 它只会获取数据然后让你自己合并。
+然而，有一个命令叫作 git pull 在大多数情况下它的含义是一个 git fetch 紧接着一个 git merge 命令。
+</code></pre>
+<h2 id="6重置git全局配置密码和用户名">6.重置Git全局配置密码和用户名：</h2>
+<pre><code>输入一行命令：
+	
+git config --system --unset credential.helper
+
+之后再进行git操作时，弹出用户名密码窗口，输入即可
+</code></pre>
+<p>附一张git常用指令指南：</p>
+<p><img src="../image/gitUsage.png" alt="Mark-Copy"></p>
+<p><img src="https://i.loli.net/2019/03/13/5c8866f59a081.png" alt="git常用指令"></p>
 
                 
 
@@ -229,12 +267,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/深入理解JVM垃圾回收算法/" data-toggle="tooltip" data-placement="top" title="深入理解JVM垃圾回收算法">&larr; Previous Post</a>
+                            <a href="/Android/开发经验总结/" data-toggle="tooltip" data-placement="top" title="开发经验总结">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/Android/Android View中的getWidth和getMeasuredWidth的区别/" data-toggle="tooltip" data-placement="top" title="探讨Android中View的getWidth( )和getMeasuredWidth( )的区别">Next Post &rarr;</a>
+                            <a href="/article/hexo-theme-huweihuang/" data-toggle="tooltip" data-placement="top" title="How to use  [Hexo] Theme">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -278,24 +316,6 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-  
-    <style>
-      span.toc-nav-number{
-        display: none
-      }
-    </style>
-  
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#1some-hexo-command"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1.Some hexo command:</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-this-sub-title-javascript"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1.1 this sub title  javascript</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#2test-java"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2.test java</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#3测试一下图片"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3.&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#x56FE;&#x7247;</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
                 
             <!-- Sidebar Container -->
             <div class="
@@ -310,7 +330,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Android" title="Android">Android</a>
+                          <a class="tag" href="/tags/#Git" title="Git">Git</a>
                         
                     </div>
                 </section>
