@@ -7,8 +7,15 @@
     </url>
 
     <url>
+        <loc>http://pengxiaoyong.cn/categories/LIFE/</loc>
+        <lastmod>2019-11-11T09:13:22.844Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://pengxiaoyong.cn/categories/Android/</loc>
-        <lastmod>2019-11-08T06:01:01.018Z</lastmod>
+        <lastmod>2019-11-12T11:29:54.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

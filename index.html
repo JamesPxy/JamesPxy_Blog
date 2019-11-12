@@ -134,7 +134,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -148,7 +148,7 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -208,6 +208,46 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/Android/开发常用adb命令总结/">
+        <h2 class="post-title">
+            
+                <i class="fa fa-thumb-tack" style="color:#F4711F" ></i>
+                <!-- <i class="fa fa-thumb-tack" style="color:#F89E8C" ></i> -->
+                <!-- <i class="fa fa-thumb-tack" style="color:#1CB7ED" ></i> -->
+                <font color=#F4711F>置顶</font>
+                <!-- <font color=#F89E8C>置顶</font>  -->
+                <!-- <font color=#1CB7ED>置顶</font>  -->
+                                 
+            常用adb命令
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.获取anr 文件
+adb pull /data/anr/traces.txt
+
+2.获取栈顶activity：
+123456789101.通过adb命令	    adb shell dumpsys activity top  adb shell dumpsys activity | grep Resumed  adb shell dumpsys activity activities |......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2019-11-12
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#adb" title="adb">adb</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -327,41 +367,6 @@
 
 <div class="post-preview">
 
-    <a href="/Android/开发经验总结/">
-        <h2 class="post-title">
-                                 
-            开发经验总结
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-content
-{:toc}
-
-1.获取anr 文件指令
-  adb pull /data/anr/traces.txt
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2019-03-15
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#经验" title="经验">经验</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/Android/Git使用小结/">
         <h2 class="post-title">
                                  
@@ -371,14 +376,12 @@ content
             
         </h3>
         <div class="post-content-preview">
-            
-content
-{:toc}
-
-1.Git常用指令：
-1.git  全局配置  --loacl  --system --global
+            1.git  全局配置  --loacl  --system --global
  $ git config --global user.name author #将用户名设为author
- $ git config --global user.email author@corpmail.com #将用户邮箱设为author@corpma......
+ $ git config --global user.email author@corpmail.com #将用户邮箱设为author@corpmail.com
+
+2.新增合并提交：
+$ git comm......
         </div>
     </a>
     
@@ -398,7 +401,7 @@ content
 
 <div class="post-preview">
 
-    <a href="/article/hexo-theme-huweihuang/">
+    <a href="/article/How-to-use-Hexo-Theme/">
         <h2 class="post-title">
                                  
             How to use  [Hexo] Theme
@@ -426,6 +429,133 @@ Install Node.js  and Git
         <div class="tags">
             
               <a href="/tags/#Hexo" title="Hexo">Hexo</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/LIFE/程序员的自我修养（一）/">
+        <h2 class="post-title">
+                                 
+            程序员的自我修养
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.关于“快速”学习编程
+对于“如何快速学习编程”这个问题，其实我真的不知道何谓“快速”。我觉得，通过遵循以下建议，你将很快地学习编程（至少你的成长/进步会快）。但你真的不应该眼中只有“快速”。只追求速度反而会拖你的后腿，让你自食其果。“快速”学习的唯一可持续方法或许是采用浸泡式教学法。找到一种方法让自己沉浸在编程中很长一段时间（几个月？）。为了让它奏效，你需要不断推动自己去学习新的东西，并......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2016-12-26
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#随笔" title="随笔">随笔</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/使用adb shell访问app数据库/">
+        <h2 class="post-title">
+                                 
+            使用adb命令去访问app数据库内容
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            步骤如下：
+1.连上已经root的手机或者模拟器 运行
+adb devices//确保可以找到当前设备   且只能是一个
+adb shell
+
+2.进入到需要查看数据库的安装包路径下
+#cd   data/data/packagename(com.example.test)
+#ls //列出当前目录下文件列表
+#cd  databases  //进入到数据库文件夹 可继续 #ls
+#sqli......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2016-12-23
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#SQLite" title="SQLite">SQLite</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/MarkDown 实践/">
+        <h2 class="post-title">
+                                 
+            MarkDown实践
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            实践MarkDown语法
+# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+####### 七级标题
+
+一级标题
+二级标题
+三级标题
+四级标题
+五级标题
+六级标题
+####### 七级标题
+无序列表
+- 文本1
+- 文本2
+- 文本3
+
+
+文本1
+文本2
+文本3
+
+有序列表
+1. 有序文本1
+2. 有序文本2
+3. 有序文本3
+......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2016-12-12
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#MarkDown" title="MarkDown">MarkDown</a>
             
         </div>
     
@@ -504,63 +634,9 @@ Install Node.js  and Git
     <div class="tags">
         
             
-            <a href="/tags/#Android" title="Android" rel="1">Android</a>
-            
         
             
-            <a href="/tags/#Java" title="Java" rel="1">Java</a>
-            
-        
-            
-            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
-            
-        
-            
-            <a href="/tags/#随笔" title="随笔" rel="1">随笔</a>
-            
-        
-            
-            <a href="/tags/#Interview" title="Interview" rel="1">Interview</a>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
+            <a href="/tags/#源码分析" title="源码分析" rel="1">源码分析</a>
             
         
             
@@ -568,11 +644,35 @@ Install Node.js  and Git
             
         
             
-            <a href="/tags/#经验" title="经验" rel="1">经验</a>
+            <a href="/tags/#随笔" title="随笔" rel="2">随笔</a>
             
         
             
-            <a href="/tags/#源码分析" title="源码分析" rel="1">源码分析</a>
+            <a href="/tags/#Interview" title="Interview" rel="1">Interview</a>
+            
+        
+            
+            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
+            
+        
+            
+            <a href="/tags/#Java" title="Java" rel="1">Java</a>
+            
+        
+            
+            <a href="/tags/#Android" title="Android" rel="1">Android</a>
+            
+        
+            
+            <a href="/tags/#SQLite" title="SQLite" rel="1">SQLite</a>
+            
+        
+            
+            <a href="/tags/#MarkDown" title="MarkDown" rel="1">MarkDown</a>
+            
+        
+            
+            <a href="/tags/#adb" title="adb" rel="1">adb</a>
             
         
     </div>
@@ -629,6 +729,10 @@ Install Node.js  and Git
     <ul>
       
         <li>
+          <a href="Android/开发常用adb命令总结/">常用adb命令</a>
+        </li>
+      
+        <li>
           <a href="article/深入理解JVM垃圾回收算法/">深入理解JVM垃圾回收算法</a>
         </li>
       
@@ -638,10 +742,6 @@ Install Node.js  and Git
       
         <li>
           <a href="Android/Android View中的getWidth和getMeasuredWidth的区别/">探讨Android中View的getWidth( )和getMeasuredWidth( )的区别</a>
-        </li>
-      
-        <li>
-          <a href="Android/开发经验总结/">开发经验总结</a>
         </li>
       
         <li>
@@ -661,6 +761,16 @@ Install Node.js  and Git
     
         <li><a href="https://github.com/JamesPxy" target="_blank">我的github</a></li>
     
+        <li><a href="androidweekly.cn" target="_blank">Android Weekly</a></li>
+    
+        <li><a href="https://yq.aliyun.com/u/huweihuang" target="_blank">Android博客周刊</a></li>
+    
+        <li><a href="https://androidblog.cn" target="_blank">Android开发技术周报</a></li>
+    
+        <li><a href="http://gityuan.com/friends" target="_blank">Gityuan大神博客</a></li>
+    
+        <li><a href="https://www.wanandroid.com" target="_blank">Wan Android社区</a></li>
+    
 </ul>
 
         <hr>
@@ -668,7 +778,7 @@ Install Node.js  and Git
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/03/">March 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2016/12/">December 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
@@ -712,16 +822,17 @@ Install Node.js  and Git
                 <p class="copyright text-muted">
                     Copyright &copy; JamesPxy 2019 
                     <br>
-                    Theme by <a href="http://beantech.org">BeanTech</a> 
-                    <span style="display: inline-block; margin: 0 5px;">
+                    Theme by <a target="_blank" href="http://beantech.org">BeanTech</a> 
+                  <!-- author re-Ported from  -->
+                  <span style="display: inline-block; margin: 0 5px;">
                         <i class="fa fa-heart"></i>
                     </span> 
-                    re-Ported by <a href="http://www.huweihuang.com">胡伟煌</a> | 
+                    re-Ported by <a target="_blank" href="http://www.huweihuang.com">hwh</a> | 
                     <iframe
                         style="margin-left: 2px; margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="91px" height="20px"
                         src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
-                    </iframe>
+                    </iframe> 
                 </p>
             </div>
         </div>
