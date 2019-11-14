@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/home.jpg') 
+            background-image: url('/img/header_img/home_mac.jpg') 
             /*config*/
         
     }
@@ -134,6 +134,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -142,13 +149,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -268,9 +268,9 @@ adb pull /data/anr/traces.txt
         </h3>
         <div class="post-content-preview">
             1.标记——清除算法（Mark-Sweep）
-​   标记——清除算法是第一种使用和比较完善的垃圾回收算法，算法分为两个过程：1、标记正所有需要回收的对象2、标记完成后清除被标记的对象。其标记的过程就是判断对象有效性，执行可达性分析的过程。其执行流程图大体如何下所示： /images/blog/blobs/git-workflow/02-github-flow.png)
+​   标记——清除算法是第一种使用和比较完善的垃圾回收算法，算法分为两个过程：1、标记正所有需要回收的对象2、标记完成后清除被标记的对象。其标记的过程就是判断对象有效性，执行可达性分析的过程。其执行流程图大体如何下所示：
 
-​   同样，我们......
+​   同样，我们也借助现实的场景进行描述。图书管里有好多人在看书，图书管理员想要收集起没有被看的书的时候，他决定让所有正......
         </div>
     </a>
     
@@ -401,34 +401,32 @@ $ git comm......
 
 <div class="post-preview">
 
-    <a href="/article/How-to-use-Hexo-Theme/">
+    <a href="/Android/2018-9-29-适配踩坑日记/">
         <h2 class="post-title">
                                  
-            How to use  [Hexo] Theme
+            监听Android通知栏消息适配
         </h2>
         <h3 class="post-subtitle">
-            This is hexo theme Demo.
+            
         </h3>
         <div class="post-content-preview">
-            
-This HuWeihuang theme created by HuWeihuang modified from the original Porter YuHsuan
+            1.关于vivo手机真机调试，安装失败
+在gradle.properties，添加
+android.injected.testOnly = false
 
-Live Demo
-Hu Weihuang Blog : www.huweihuang.com
-
-Install Hexo
-Install Node.js  and Git
-123#For Macbrew instal......
+2.OPPO短信监听的action有改变
+	 &lt;!--oppo 手机的短信action--&gt;
+     &lt;action android:name=&quot;android.provider.OppoSpeechAssis......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by JamesPxy on
-            2017-09-18
+            2018-09-29
         </p>
         <div class="tags">
             
-              <a href="/tags/#Hexo" title="Hexo">Hexo</a>
+              <a href="/tags/#Android" title="Android">Android</a>
             
         </div>
     
@@ -438,27 +436,27 @@ Install Node.js  and Git
 
 <div class="post-preview">
 
-    <a href="/LIFE/程序员的自我修养（一）/">
+    <a href="/Android/2018-6-26-RecycleView局部刷新/">
         <h2 class="post-title">
                                  
-            程序员的自我修养
+            RecycleView局部刷新
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.关于“快速”学习编程
-对于“如何快速学习编程”这个问题，其实我真的不知道何谓“快速”。我觉得，通过遵循以下建议，你将很快地学习编程（至少你的成长/进步会快）。但你真的不应该眼中只有“快速”。只追求速度反而会拖你的后腿，让你自食其果。“快速”学习的唯一可持续方法或许是采用浸泡式教学法。找到一种方法让自己沉浸在编程中很长一段时间（几个月？）。为了让它奏效，你需要不断推动自己去学习新的东西，并......
+            1.第一种方法：
+12345678   public final void notifyItemChanged(int position, Object payload) &#123;           mObservable.notifyItemRangeChanged(position, 1, payload);       &#125;public void onBindViewHo......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by JamesPxy on
-            2016-12-26
+            2018-06-26
         </p>
         <div class="tags">
             
-              <a href="/tags/#随笔" title="随笔">随笔</a>
+              <a href="/tags/#RecycleView" title="RecycleView">RecycleView</a>
             
         </div>
     
@@ -468,35 +466,28 @@ Install Node.js  and Git
 
 <div class="post-preview">
 
-    <a href="/Android/使用adb shell访问app数据库/">
+    <a href="/Android/2018-6-19-DialogFragment实现底部对话框/">
         <h2 class="post-title">
                                  
-            使用adb命令去访问app数据库内容
+            DialogFragment实现底部弹框
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            步骤如下：
-1.连上已经root的手机或者模拟器 运行
-adb devices//确保可以找到当前设备   且只能是一个
-adb shell
+            1.第一种比较常用：设置style样式：
 
-2.进入到需要查看数据库的安装包路径下
-#cd   data/data/packagename(com.example.test)
-#ls //列出当前目录下文件列表
-#cd  databases  //进入到数据库文件夹 可继续 #ls
-#sqli......
+123456789101112131415161718 &lt;style name="Animation" parent="@android:style/Animation"&gt;     &lt;item name="android:windowEnterAnimation"&gt;@anim/push_bottom_in&lt;/item&......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by JamesPxy on
-            2016-12-23
+            2018-06-19
         </p>
         <div class="tags">
             
-              <a href="/tags/#SQLite" title="SQLite">SQLite</a>
+              <a href="/tags/#DialogFragment" title="DialogFragment">DialogFragment</a>
             
         </div>
     
@@ -506,90 +497,69 @@ adb shell
 
 <div class="post-preview">
 
-    <a href="/article/MarkDown 实践/">
+    <a href="/Android/2018-1-3-first-all-for-the-interview/">
         <h2 class="post-title">
                                  
-            MarkDown实践
+            All for the interview
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            实践MarkDown语法
-# 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
-####### 七级标题
-
-一级标题
-二级标题
-三级标题
-四级标题
-五级标题
-六级标题
-####### 七级标题
-无序列表
-- 文本1
-- 文本2
-- 文本3
+            1.第三方API
+豆瓣最新热映电影：https://api.douban.com/v2/movie/in_theaters
+2.maxAge与maxStale的区别：
 
 
-文本1
-文本2
-文本3
+maxAge:没有超出maxAge,不管怎么样都是返回缓存数据，超过了maxAge,发起新的请求获取数据更新，请求失败返回缓存数据.
 
-有序列表
-1. 有序文本1
-2. 有序文本2
-3. 有序文本3
+
+maxStale:没有超过maxStale，不管怎么样都返回缓存数据，超过了maxS......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2018-01-03
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#面试" title="面试">面试</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/浅谈AIDL跨进程通信/">
+        <h2 class="post-title">
+                                 
+            浅谈跨进程通信AIDL
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前段时间去面试，都被问到了AIDL的原理和实现，所以必须得写篇博客来总结一下，做到心中有数，有备无患。
+1.概述
+AIDL全称是Android Interface Definition Language，也就是Android接口定义语言。是的，首先我们知道的第一点就是：AIDL是一种语言。既然是一种语言，那么相应的就很自然的衍生出了一些问题：
+
+为什么要设计出这么一门语言？
+它有哪些语法？
 ......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by JamesPxy on
-            2016-12-12
+            2017-11-14
         </p>
         <div class="tags">
             
-              <a href="/tags/#MarkDown" title="MarkDown">MarkDown</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/I-ve-Interviewed-100s-of-Candidates-and-the-Ones-I-Hire-Always-Do-This/">
-        <h2 class="post-title">
-                                 
-            I’ve Interviewed 100s of Candidates and the Ones I Hire Always Do This
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            面试是很有压力的一件事，通常，你只有不到一个小时的时间来使面试官相信你是所有候选者中最合适那一个。这个面试官很有可能还会在当天面试其他的候选者并且还有其他的事情要做。那你如何才能够脱颖而出呢。
-1. 充分的准备，知道哪些事情是想要让面试官知道的。
-通过上百个我做组织的面试者们，我发现最合适的那些面试者永远都是表达最清晰的。
-所有人都知道充足的准备是必要的，但是如何准备是极其重要的，许多人会准......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2015-12-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#随笔" title="随笔">随笔</a>
-            
-              <a href="/tags/#Interview" title="Interview">Interview</a>
+              <a href="/tags/#AIDL" title="AIDL">AIDL</a>
             
         </div>
     
@@ -603,6 +573,10 @@ adb shell
 
 <ul class="pager">
     
+    
+        <li class="next">
+            <a href="/archives/2/">Older Posts &rarr;</a>
+        </li>
     
 </ul>
 
@@ -634,33 +608,11 @@ adb shell
     <div class="tags">
         
             
-        
-            
-            <a href="/tags/#源码分析" title="源码分析" rel="1">源码分析</a>
-            
-        
-            
-            <a href="/tags/#Git" title="Git" rel="1">Git</a>
-            
-        
-            
             <a href="/tags/#随笔" title="随笔" rel="2">随笔</a>
             
         
             
             <a href="/tags/#Interview" title="Interview" rel="1">Interview</a>
-            
-        
-            
-            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
-            
-        
-            
-            <a href="/tags/#Java" title="Java" rel="1">Java</a>
-            
-        
-            
-            <a href="/tags/#Android" title="Android" rel="1">Android</a>
             
         
             
@@ -672,7 +624,81 @@ adb shell
             
         
             
+            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
+            
+        
+            
+            <a href="/tags/#源码分析" title="源码分析" rel="1">源码分析</a>
+            
+        
+            
+            <a href="/tags/#Git" title="Git" rel="1">Git</a>
+            
+        
+            
             <a href="/tags/#adb" title="adb" rel="1">adb</a>
+            
+        
+            
+            <a href="/tags/#Android" title="Android" rel="6">Android</a>
+            
+        
+            
+            <a href="/tags/#Java" title="Java" rel="3">Java</a>
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#技术栈" title="技术栈" rel="3">技术栈</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#经验总结" title="经验总结" rel="1">经验总结</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#AIDL" title="AIDL" rel="1">AIDL</a>
+            
+        
+            
+            <a href="/tags/#面试" title="面试" rel="1">面试</a>
+            
+        
+            
+            <a href="/tags/#DialogFragment" title="DialogFragment" rel="1">DialogFragment</a>
+            
+        
+            
+            <a href="/tags/#RecycleView" title="RecycleView" rel="1">RecycleView</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#git" title="git" rel="1">git</a>
+            
+        
+            
+            <a href="/tags/#gradle" title="gradle" rel="1">gradle</a>
+            
+        
+            
+            <a href="/tags/#算法" title="算法" rel="1">算法</a>
             
         
     </div>
@@ -778,7 +804,7 @@ adb shell
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2016/12/">December 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/11/">November 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>

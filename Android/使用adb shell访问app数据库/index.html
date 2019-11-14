@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/article_bg.jpg')
+            background-image: url('/img/header_img/foods.webp')
             /*post*/
         
     }
@@ -142,6 +142,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -150,13 +157,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -249,7 +249,7 @@ adb shell
                     
                     
                         <li class="next">
-                            <a href="/article/MarkDown 实践/" data-toggle="tooltip" data-placement="top" title="MarkDown实践">Next Post &rarr;</a>
+                            <a href="/Android/如何实现android AppWidget小组件/" data-toggle="tooltip" data-placement="top" title="Android中的AppWidget(桌面小部件）实现方式">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -261,8 +261,8 @@ adb shell
                     <div class="reward">
                         <div class="reward-button">赏 <span class="reward-code"> 
                             <span class="alipay-code"> <img class="alipay-img" 
-                            src="/img/icon_wechat.png"><b>支付宝打赏</b></span> 
-                            <span class="wechat-code"> <img class="wechat-img" src="http://ww4.sinaimg.cn/large/a9dcb8f3gw1fayeaq8y04j20go0b3dgc.jpg"><b>微信打赏</b> </span>
+                            src="/img/pay/pay_ali.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/pay/pay_wechat.jpg"><b>微信打赏</b> </span>
                             </span></div>
                         <p class="reward-notice">赞赏一下</p>
                     </div>
@@ -271,11 +271,6 @@ adb shell
 
                 <br>
                 <!--分享-->
-                
-                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
-                    <!--  css & js -->
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
                 
                 <!--分享-->
                 <br>                       
@@ -301,6 +296,24 @@ adb shell
             
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#步骤如下"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#1连上已经root的手机或者模拟器-运行"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">1.&#x8FDE;&#x4E0A;&#x5DF2;&#x7ECF;root&#x7684;&#x624B;&#x673A;&#x6216;&#x8005;&#x6A21;&#x62DF;&#x5668; &#x8FD0;&#x884C;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2进入到需要查看数据库的安装包路径下"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">2.&#x8FDB;&#x5165;&#x5230;&#x9700;&#x8981;&#x67E5;&#x770B;&#x6570;&#x636E;&#x5E93;&#x7684;&#x5B89;&#x88C5;&#x5305;&#x8DEF;&#x5F84;&#x4E0B;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3总结"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">3.&#x603B;&#x7ED3;</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
 
                 
             <!-- Sidebar Container -->

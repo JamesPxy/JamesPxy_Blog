@@ -8,14 +8,21 @@
 
     <url>
         <loc>http://pengxiaoyong.cn/categories/LIFE/</loc>
-        <lastmod>2019-11-11T09:13:22.844Z</lastmod>
+        <lastmod>2019-11-14T02:20:45.532Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pengxiaoyong.cn/categories/Java/</loc>
+        <lastmod>2019-11-14T03:29:03.654Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://pengxiaoyong.cn/categories/Android/</loc>
-        <lastmod>2019-11-12T11:29:54.206Z</lastmod>
+        <lastmod>2019-11-14T03:31:04.399Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

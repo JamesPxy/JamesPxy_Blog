@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JamesPxy  Blog-JamesPxy  blog">
+    <meta name="keyword"  content="king JamesPxy">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Android Studio gradle配置 - 彭晓勇 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://pengxiaoyong.cn/Android/2017-1-11-gradle配置及多渠道打包/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="../../css/beantech.min.css">
+
+    <link rel="stylesheet" href="../../css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="../../css/highlight.css">
+
+    <link rel="stylesheet" href="../../css/widget.css">
+
+    <link rel="stylesheet" href="../../css/rocket.css">
+
+    <link rel="stylesheet" href="../../css/signature.css">
+
+    <link rel="stylesheet" href="../../css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/header_img/foods.webp')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#gradle" title="gradle">gradle</a>
+                            
+                        </div>
+                        <h1>Android Studio gradle配置</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by JamesPxy on
+                            2017-01-11
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">彭晓勇</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="1使用配置文件管理app版本">1.使用配置文件管理app版本</h1>
+<p>因为Android Studio是使用gradle进行项目构建的，这使得通过配置文件进行版本管理成为可能。</p>
+<p>使用配置文件管理app版本很简单，就是定义一个properties文件，里面有版本号、版本名等版本信息，只需要在build.gradle中引用该文件，使用该配置文件的属性，进行项目的版本号等版本信息的赋值，就可以实现版本号的动态控制（**注意：**在gradle文件中配置的版本号、版本名称是优于在manifest.xml中配置的，如果你在gradle文件中配置了版本信息，那么不管你是否也在manifest.xml文件中进行了配置，系统都不会再去manifest.xml中进行版本信息的读取了）。</p>
+<p>要实现这个目标，首先，要新建一个properties文件（或者直接在android studio工作控件下的local.properties文件中进行配置也可以，本文的例子就是在该文件中进行配置的），内容如下：</p>
+<pre><code>	#local.properties文件中自己定义的sdk位置，本来就有
+	sdk.dir=D\:\\Android\\sdk
+	#=====以下是自己定义的内容=====
+	# 打包的输出路径
+	appReleaseDir=D:/package/as/madq_
+	# APP版本号，用来升级使用
+	appVersionCode=2
+	# APP版本名称，最终打包使用
+	appVersionName=1.0.0.2
+	# app正式版包名后缀
+	appSuffixName=_release.apk
+</code></pre>
+<p>properties文件之后，在gradle中引用的方式如下：</p>
+<pre><code>	// 默认版本号
+	ext.appVersionCode = 1
+	// 默认版本名
+	ext.appVersionName = &quot;1.0.0.0&quot;
+	// 默认apk输出路径
+	ext.appReleaseDir = &quot;D:\\package\\as\\_&quot;
+	// 默认正式包后缀名
+	ext.appSuffixName = &quot;_release.apk&quot;
+	
+	// 加载版本信息配置文件方法
+	def loadProperties() {
+	    def proFile = file(&quot;../local.properties&quot;)
+	    Properties pro = new Properties()
+	    proFile.withInputStream { stream-&gt;
+	        pro.load(stream)
+	    }
+	    appReleaseDir = pro.appReleaseDir
+	    appVersionCode = Integer.valueOf(pro.appVersionCode)
+	    appVersionName = pro.appVersionName
+	    appSuffixName = pro.appSuffixName
+	}
+	//加载版本信息
+	loadProperties()
+</code></pre>
+<p>上文的代码，实现了从配置文件读取属性，赋值给本地变量，这里chu，注意，本地变量一定要使用ext.xxx进行定义，如果使用def定义，是读取不到外部文件的属性的，运行会报属性找不到的错误；此外，还要注意，定以完方法之后，要调用一次，方法才会执行。加载到属性之后，只需要使用变量值设置版本号等信息就可以了：</p>
+<pre><code>	defaultConfig {
+    ...
+    versionCode appVersionCode
+    versionName appVersionName
+    ...
+   }
+</code></pre>
+<p>这样就可以省去每次改动版本号，都得sync gradle的麻烦了，此外，还可以自己定义一些版本号自动更新策略，例如在某些gradle任务（通常是aR任务）执行成功后，进行版本号+1操作等，这样整个版本管理都轻松不少。</p>
+<h1 id="2自定义apk文件输出路径及apk文件名">2.自定义apk文件输出路径及apk文件名</h1>
+<p>使用android studio进行apk打包和使用eclipse不同，eclipse在签名打包的过程中会让你指定文件名和输出路径，但是android studio如果你不进行配置，文件名就是固定的，只会让你指定一个路径，而且为了避免前后打的包命名冲突，每次都得该apk文件名，很麻烦，使用gradle配置就能够解决这个问题。</p>
+<p>可以看到，在前文中提到的配置文件中，除了版本信息，还配置了一个apk输出地址appReleaseDir 信息，要实现将apk输出到指定地址，需要如下操作：</p>
+<pre><code>	applicationVariants.all { variant -&gt;
+            variant.outputs.each { output -&gt;
+                //开始输出,自定义输出路径
+                output.outputFile = 
+                new File(appReleaseDir + getDate() + 
+                &quot;_v&quot; + appVersionName + 
+                variant.productFlavors[0].name + 
+                appSuffixName)
+            }
+        }
+</code></pre>
+<p>在上面的代码中，组装apk文件名的时候，使用到了一个getDate方法，用于获取格式化时间，避免多次打包命名冲突的问题，此外在命名的时候还使用了variant.productFlavors[0].name，这是多渠道打包，用于标记该包是哪个渠道的，下文会具体说多渠道打包，这里先不用管，指定apk输出路径和文件名就是这么简单。</p>
+<pre><code>	def getDate() {
+	    def date = new Date()
+	    def formattedDate = date.format('yyyy_MM_dd_HHmm')
+	    return formattedDate
+	}
+</code></pre>
+<h1 id="3gradle配置多渠道打包">3.gradle配置多渠道打包</h1>
+<p>在国内，打包做的最好的莫过于友盟了，本文就介绍使用友盟进行多渠道打包，使用友盟进行多渠道打包，可以实现统计应用在每个渠道市场被下载次数的功能。在gradle进行多渠道打包配置，可以一次性打出每个渠道的包，省的为每个市场一个一个打。试想一下，国内应用市场最少十几二十个，如果手动为每个市场单独打包，程序员非得哭晕在厕所啊。使用gradle配置，可以一个任务打出所有渠道的包，结合上文介绍，可以让所有的release包以指定apk文件名输出到指定路径，想想还是非常爽的，而且结合Jenkins自动构建平台，还可以将打出的包发布到指定服务器，供用户通过连接或者二维码下载，相当方便。通过友盟进行多渠道打包，主要有以下两步：</p>
+<h2 id="a在manifestxml文件中进行umeng_channel的配置">a.在manifest.xml文件中进行UMENG_CHANNEL的配置</h2>
+<pre><code>	&lt;meta-data
+	    android:name=&quot;UMENG_CHANNEL&quot;
+	    android:value=&quot;${UMENG_CHANNEL_VALUE}&quot; /&gt;
+</code></pre>
+<h2 id="b在gradle中替换manifestxml中声明的占位符">b.在gradle中替换manifest.xml中声明的占位符</h2>
+<pre><code>	// 友盟多渠道打包
+productFlavors {
+    // 360手机助手
+    _360 { }
+    // 91手机助手
+    _91 {}
+    // 应用汇
+    _yingyonghui {}
+    // 豌豆荚
+    _wandoujia { }
+    // 百度手机助手
+    _baidu { }
+    ...
+}
+
+productFlavors.all { flavor -&gt;
+    flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+}
+</code></pre>
+<p>其实对productFlavors 的配置还有另一种方式，即：</p>
+<pre><code>productFlavors {
+    _wandoujia {
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: &quot;wandoujia&quot;]
+    }
+    _360 {
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: &quot;_360&quot;]
+    }
+}
+</code></pre>
+<h1 id="4gradle构建android用到的所有配置如下">4.gradle构建android用到的所有配置如下：</h1>
+<pre><code>	apply plugin: 'com.android.application'
+
+	// 默认版本号
+	ext.appVersionCode = 1
+	// 默认版本名
+	ext.appVersionName = &quot;1.0.0.0&quot;
+	// 默认apk输出路径
+	ext.appReleaseDir = &quot;D:\\package\\as\\mdq_&quot;
+	// 默认正式包后缀名
+	ext.appSuffixName = &quot;_release.apk&quot;
+	
+	// 加载版本信息配置文件方法
+	def loadProperties() {
+	    def proFile = file(&quot;../local.properties&quot;)
+	    Properties pro = new Properties()
+	    proFile.withInputStream { stream-&gt;
+	        pro.load(stream)
+	    }
+	    appReleaseDir = pro.appReleaseDir
+	    appVersionCode = Integer.valueOf(pro.appVersionCode)
+	    appVersionName = pro.appVersionName
+	    appSuffixName = pro.appSuffixName
+	}
+	// 加载版本信息
+	loadProperties()
+	// 应用相关配置
+	android {
+	    compileSdkVersion 18
+	    buildToolsVersion &quot;21.1.2&quot;
+	
+	    defaultConfig {
+	        // 应用id，即包名
+	        applicationId &quot;ab.cd&quot;
+	        // 最低适配版本，低于此版本的手机无法安装
+	        minSdkVersion 16
+	        // 目标版本，即在该版本上做了充分测试，应用最适用的版本
+	        targetSdkVersion 22
+	        // 版本号，每打一次包加1
+	        versionCode appVersionCode
+	        // 版本名，例如1.0.1，通常用三位，表示主版本号.分版本号.补丁号（小版本号）
+	        versionName appVersionName
+	        // dex突破65535限制,当app方法数超过限制，会采用多dex打包
+	        multiDexEnabled true
+	        // 默认打包渠道是友盟
+	        manifestPlaceholders = [UMENG_CHANNEL_VALUE: &quot;umeng&quot;]
+	    }
+	
+	    // 禁止Lint出错导致打包异常终止
+	    lintOptions {
+	        disable 'MissingTranslation', 'ExtraTranslation'
+	        abortOnError false
+	        ignoreWarnings true
+	    }
+	
+	    //签名信息
+	    signingConfigs {
+	        // debug签名信息
+	        debugConfig {
+	            storeFile file(&quot;C:\\debug.keystore&quot;)
+	            storePassword &quot;123456&quot;
+	            keyAlias &quot;debug&quot;
+	            keyPassword &quot;123456&quot;
+	        }
+	        // 发布版签名
+	        releaseConfig {
+	            storeFile file(&quot;C:\\release.keystore&quot;)
+	            storePassword &quot;123456&quot;
+	            keyAlias &quot;release&quot;
+	            keyPassword &quot;123456&quot;
+	        }
+	    }
+	
+	    buildTypes {
+	        // debug构建配置
+	        debug {
+	            // 显示Log
+	            buildConfigField &quot;boolean&quot;, &quot;LOG_DEBUG&quot;, &quot;true&quot;
+	            // apk包名称后缀，用来区分release和debug
+	            versionNameSuffix &quot;_debug&quot;
+	            // 不混淆
+	            minifyEnabled false
+	            // 不压缩优化
+	            zipAlignEnabled false
+	            // 不进行资源优化（删除无用资源等）
+	            shrinkResources false
+	            // 使用的签名信息
+	            signingConfig signingConfigs.debugConfig
+	        }
+	        // release构建配置
+	        release {
+	            // 正式版不显示log
+	            buildConfigField &quot;boolean&quot;, &quot;LOG_DEBUG&quot;, &quot;false&quot;
+	            // 进行混淆
+	            minifyEnabled true
+	            // 进行压缩优化
+	            zipAlignEnabled true
+	            // 进行资源优化，移除无用的resource文件
+	            shrinkResources true
+	            // 使用的签名信息
+	            signingConfig signingConfigs.releaseConfig
+	            // 使用的混淆规则文件，前面是系统默认的文件，会全部混淆，
+	            // 后面是自定义不混淆的文件（domain，android四大组件，自定义view等一般是不能混淆的）
+	            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+	            //应用编译完成，自定义apk输出位置及文件名
+	            applicationVariants.all { variant -&gt;
+	                variant.outputs.each { output -&gt;
+	                    //开始输出,自定义输出路径
+	                    output.outputFile = new File(appReleaseDir + getDate() + &quot;_v&quot; +
+	                            appVersionName + variant.productFlavors[0].name + appSuffixName)
+	                }
+	            }
+	        }
+	    }
+	    // 打包忽略掉第三方jar相同的文件  打包排除以下文件，屏蔽因as自身bug，在没有重复引用jar时，提示jar重复引用的问题
+	    packagingOptions {
+	        exclude 'META-INF/DEPENDENCIES.txt'
+	        exclude 'META-INF/LICENSE.txt'
+	        exclude 'META-INF/NOTICE.txt'
+	        exclude 'META-INF/NOTICE'
+	        exclude 'META-INF/LICENSE'
+	        exclude 'META-INF/DEPENDENCIES'
+	        exclude 'META-INF/notice.txt'
+	        exclude 'META-INF/license.txt'
+	        exclude 'META-INF/dependencies.txt'
+	        exclude 'META-INF/LGPL2.1'
+	    }
+	    // 友盟多渠道打包
+	    productFlavors {
+	//        使用注释掉的这种方式也可以实现多渠道打包，这样就不用下面的productFlavors.all函数了
+	//        如果只使用占位信息定义，如wandoujia{}，则需要productFlavors.all函数同意标识
+	//        wandoujia {
+	//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: &quot;wandoujia&quot;]
+	//        }
+	        // 360手机助手
+	        _360 { }
+	        // 91手机助手
+	        _91 {}
+	        // 应用汇
+	        _yingyonghui {}
+	        // 豌豆荚
+	        _wandoujia { }
+	        // 百度手机助手
+	        _baidu { }
+	        // 安智市场
+	        _anzhi { }
+	        // 机锋
+	        _jifeng { }
+	        // 魅族市场
+	        _meizu { }
+	        // 小米市场
+	        _xiaomi { }
+	        // google商店
+	        _googleplay { }
+	        // 安卓市场
+	        _anzhuoshichang { }
+	        // 华为应用商店
+	        _huawei { }
+	        // 淘宝手机助手
+	        _taobao { }
+	    }
+	
+	    productFlavors.all { flavor -&gt;
+	        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+	    }
+	}
+	
+	// 获取格式化时间，用来标识打包时间，同时避免命名冲突
+	def getDate() {
+	    def date = new Date()
+	    def formattedDate = date.format('yyyy_MM_dd_HHmm')
+	    return formattedDate
+	}
+	
+	dependencies {
+	    compile project(':andBase')
+	    compile project(':initActivity')
+	    compile files('libs/android-async-http-1.4.4.jar')
+	    compile files('libs/baidumapapi_v3_2_0.jar')
+	    compile files('libs/easemobchat_2.1.8.jar')
+	    compile files('libs/fastjson-1.1.31.jar')
+	    compile files('libs/HCNetSDK.jar')
+	    compile files('libs/jsr305-2.0.1.jar')
+	    compile files('libs/locSDK_3.3.jar')
+	    compile files('libs/PlayerSDK.jar')
+	    compile files('libs/umeng-analytics-v5.5.3.jar')
+	    compile files('libs/universal-image-loader-1.9.3.jar')
+	    compile files('libs/xUtils-2.6.14.jar')
+	}
+	// 使用自己的LockHunter进行文件解锁，
+	// as中clean的时候总是提示删不掉这个文件那个文件,这里自己的clean任务就可以删除
+	// 前提是安装了lockhunter
+	task clean(type: Exec) {
+	    ext.lockhunter = &quot;D:\\Program Files\\LockHunter.exe&quot;
+	    def buildDir = file(&quot;build&quot;)
+	    commandLine 'cmd', &quot;$lockhunter&quot;, '/delete', '/silent', buildDir
+	}
+</code></pre>
+<h1 id="5其它可参考配置博客地址">5.其它可参考配置博客地址</h1>
+<ul>
+<li><a href="http://blog.csdn.net/javazejian/article/details/50750457" target="_blank" rel="noopener">android studio gradle 多渠道打包之完全详解（打包系列教程之四)</a></li>
+<li><a href="http://www.jianshu.com/p/85cf8141e4ae" target="_blank" rel="noopener">两分钟教你搞定Gradle多渠道打包</a></li>
+</ul>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/Android/2017-1-19-浅谈Android中的网络请求HttpUrlConnection/" data-toggle="tooltip" data-placement="top" title="浅谈HttpUrlConnettion网络请求">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/LIFE/程序员的自我修养（一）/" data-toggle="tooltip" data-placement="top" title="程序员的自我修养">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" 
+                            src="/img/pay/pay_ali.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/pay/pay_wechat.jpg"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#1使用配置文件管理app版本"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1.&#x4F7F;&#x7528;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7BA1;&#x7406;app&#x7248;&#x672C;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#2自定义apk文件输出路径及apk文件名"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2.&#x81EA;&#x5B9A;&#x4E49;apk&#x6587;&#x4EF6;&#x8F93;&#x51FA;&#x8DEF;&#x5F84;&#x53CA;apk&#x6587;&#x4EF6;&#x540D;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#3gradle配置多渠道打包"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3.gradle&#x914D;&#x7F6E;&#x591A;&#x6E20;&#x9053;&#x6253;&#x5305;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#a在manifestxml文件中进行umeng_channel的配置"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">a.&#x5728;manifest.xml&#x6587;&#x4EF6;&#x4E2D;&#x8FDB;&#x884C;UMENG_CHANNEL&#x7684;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#b在gradle中替换manifestxml中声明的占位符"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">b.&#x5728;gradle&#x4E2D;&#x66FF;&#x6362;manifest.xml&#x4E2D;&#x58F0;&#x660E;&#x7684;&#x5360;&#x4F4D;&#x7B26;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#4gradle构建android用到的所有配置如下"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4.gradle&#x6784;&#x5EFA;android&#x7528;&#x5230;&#x7684;&#x6240;&#x6709;&#x914D;&#x7F6E;&#x5982;&#x4E0B;&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#5其它可参考配置博客地址"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5.&#x5176;&#x5B83;&#x53EF;&#x53C2;&#x8003;&#x914D;&#x7F6E;&#x535A;&#x5BA2;&#x5730;&#x5740;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#gradle" title="gradle">gradle</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://github.com/JamesPxy" target="_blank">我的github</a></li>
+                    
+                        <li><a href="androidweekly.cn" target="_blank">Android Weekly</a></li>
+                    
+                        <li><a href="https://yq.aliyun.com/u/huweihuang" target="_blank">Android博客周刊</a></li>
+                    
+                        <li><a href="https://androidblog.cn" target="_blank">Android开发技术周报</a></li>
+                    
+                        <li><a href="http://gityuan.com/friends" target="_blank">Gityuan大神博客</a></li>
+                    
+                        <li><a href="https://www.wanandroid.com" target="_blank">Wan Android社区</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JamesPxy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; JamesPxy 2019 
+                    <br>
+                    Theme by <a target="_blank" href="http://beantech.org">BeanTech</a> 
+                  <!-- author re-Ported from  -->
+                  <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a target="_blank" href="http://www.huweihuang.com">hwh</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe> 
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="../../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../../js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://pengxiaoyong.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://pengxiaoyong.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

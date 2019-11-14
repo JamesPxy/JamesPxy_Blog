@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/article_bg.jpg')
+            background-image: url('/img/header_img/foods.webp')
             /*post*/
         
     }
@@ -142,6 +142,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -150,13 +157,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -252,8 +252,8 @@ adb shell  &quot;logcat | grep &quot;com.kufeng.hj.enjoy&quot;&quot;
                     <div class="reward">
                         <div class="reward-button">赏 <span class="reward-code"> 
                             <span class="alipay-code"> <img class="alipay-img" 
-                            src="/img/icon_wechat.png"><b>支付宝打赏</b></span> 
-                            <span class="wechat-code"> <img class="wechat-img" src="http://ww4.sinaimg.cn/large/a9dcb8f3gw1fayeaq8y04j20go0b3dgc.jpg"><b>微信打赏</b> </span>
+                            src="/img/pay/pay_ali.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/pay/pay_wechat.jpg"><b>微信打赏</b> </span>
                             </span></div>
                         <p class="reward-notice">赞赏一下</p>
                     </div>
@@ -262,11 +262,6 @@ adb shell  &quot;logcat | grep &quot;com.kufeng.hj.enjoy&quot;&quot;
 
                 <br>
                 <!--分享-->
-                
-                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
-                    <!--  css & js -->
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
                 
                 <!--分享-->
                 <br>                       
@@ -292,6 +287,24 @@ adb shell  &quot;logcat | grep &quot;com.kufeng.hj.enjoy&quot;&quot;
             
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1获取anr-文件"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1.&#x83B7;&#x53D6;anr &#x6587;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2获取栈顶activity"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2.&#x83B7;&#x53D6;&#x6808;&#x9876;activity&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3使用adb获得当前应用-activity堆栈信息"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3.&#x4F7F;&#x7528;adb&#x83B7;&#x5F97;&#x5F53;&#x524D;&#x5E94;&#x7528; activity&#x5806;&#x6808;&#x4FE1;&#x606F;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4adb拦截log日志"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4.adb&#x62E6;&#x622A;log&#x65E5;&#x5FD7;&#xFF1A;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
 
                 
             <!-- Sidebar Container -->

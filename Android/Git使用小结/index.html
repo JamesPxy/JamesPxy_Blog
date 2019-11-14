@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/article_bg.jpg')
+            background-image: url('/img/header_img/foods.webp')
             /*post*/
         
     }
@@ -142,6 +142,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -150,13 +157,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -267,7 +267,7 @@ git config --system --unset credential.helper
                     
                     
                         <li class="next">
-                            <a href="/article/How-to-use-Hexo-Theme/" data-toggle="tooltip" data-placement="top" title="How to use  [Hexo] Theme">Next Post &rarr;</a>
+                            <a href="/Android/2018-9-29-适配踩坑日记/" data-toggle="tooltip" data-placement="top" title="监听Android通知栏消息适配">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -279,8 +279,8 @@ git config --system --unset credential.helper
                     <div class="reward">
                         <div class="reward-button">赏 <span class="reward-code"> 
                             <span class="alipay-code"> <img class="alipay-img" 
-                            src="/img/icon_wechat.png"><b>支付宝打赏</b></span> 
-                            <span class="wechat-code"> <img class="wechat-img" src="http://ww4.sinaimg.cn/large/a9dcb8f3gw1fayeaq8y04j20go0b3dgc.jpg"><b>微信打赏</b> </span>
+                            src="/img/pay/pay_ali.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/pay/pay_wechat.jpg"><b>微信打赏</b> </span>
                             </span></div>
                         <p class="reward-notice">赞赏一下</p>
                     </div>
@@ -289,11 +289,6 @@ git config --system --unset credential.helper
 
                 <br>
                 <!--分享-->
-                
-                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
-                    <!--  css & js -->
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
                 
                 <!--分享-->
                 <br>                       
@@ -319,6 +314,24 @@ git config --system --unset credential.helper
             
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1git-全局配置-loacl-system-global"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1.git  &#x5168;&#x5C40;&#x914D;&#x7F6E;  --loacl  --system --global</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2新增合并提交"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2.&#x65B0;&#x589E;&#x5408;&#x5E76;&#x63D0;&#x4EA4;&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3git-中创建一个附注标签"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3.Git &#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9644;&#x6CE8;&#x6807;&#x7B7E;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-分支创建"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4&#x3001;&#x5206;&#x652F;&#x521B;&#x5EFA;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5拉取分支"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5.&#x62C9;&#x53D6;&#x5206;&#x652F;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6重置git全局配置密码和用户名"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6.&#x91CD;&#x7F6E;Git&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x5BC6;&#x7801;&#x548C;&#x7528;&#x6237;&#x540D;&#xFF1A;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
 
                 
             <!-- Sidebar Container -->
