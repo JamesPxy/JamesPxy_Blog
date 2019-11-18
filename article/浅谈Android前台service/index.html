@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JamesPxy  Blog-JamesPxy  blog">
+    <meta name="keyword"  content="king JamesPxy">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Android前台service和Notification - 彭晓勇 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://pengxiaoyong.cn/article/浅谈Android前台service/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="../../css/beantech.min.css">
+
+    <link rel="stylesheet" href="../../css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="../../css/highlight.css">
+
+    <link rel="stylesheet" href="../../css/widget.css">
+
+    <link rel="stylesheet" href="../../css/rocket.css">
+
+    <link rel="stylesheet" href="../../css/signature.css">
+
+    <link rel="stylesheet" href="../../css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/color.webp')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Service" title="Service">Service</a>
+                            
+                        </div>
+                        <h1>Android前台service和Notification</h1>
+                        <h2 class="subheading">8.0版本Notifacation适配/Notification开关判断与设置跳转</h2>
+                        <span class="meta">
+                            Posted by JamesPxy on
+                            2019-11-15
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">彭晓勇</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>今天着手解决Android8.0以上前台服务的问题，还是有些许收获的，下面来简单总结一下：</p>
+<ul>
+<li>首先请移步谷歌Android开发者文档中心了解：[Android前台服务概览]（<a href="https://developer.android.com/guide/components/services.html#Foreground%EF%BC%89" target="_blank" rel="noopener">https://developer.android.com/guide/components/services.html#Foreground）</a></li>
+</ul>
+<ul>
+<li>
+<p>然后再了解一下<a href="https://developer.android.com/guide/topics/ui/notifiers/notifications" target="_blank" rel="noopener">通知概览</a></p>
+</li>
+<li>
+<p><strong>从 Android 8.0（API 级别 26）开始，所有通知都必须分到一个渠道，否则通知将不会显示。</strong> 通过将通知分类到渠道，用户可以停用应用的特定通知渠道（而不是停用所有通知），还可以控制每个渠道的视觉和听觉选项，所有这些操作都在 Android 系统设置中完成（如图 11 所示）。用户还可以长按通知以更改关联渠道的行为。</p>
+</li>
+<li>
+<p>我实践了一下，我们可以不注册前台服务的通知渠道，然后startService()时照常在onCreate()中调用startForeground()，实际效果是service依然正常运行，历久弥新，并没有被系统干掉。具体可能需要灰度看在更多的机器上的表现。当然钻系统的这种漏洞是不好，但是通知栏一直干扰用户带来的体验更差，只能有所倾向和选择了。此外还需要留意是否会出现BadNotifacation异常。目前我测试的机器上是没有遇到过这个异常的。</p>
+</li>
+<li>
+<p>另外再推荐一篇关于通知栏适配的文章<br>
+<a href="https://www.jianshu.com/p/9bf70d125582" target="_blank" rel="noopener">网易考拉 Android 通知栏适配全方案</a><br>
+<a href="https://cloud.tencent.com/developer/article/1376901" target="_blank" rel="noopener">失效点击这里</a></p>
+</li>
+</ul>
+<h2 id="通知栏开关状态判断包括高版本通知渠道判断以及跳转去设置引导打开开关工具类">通知栏开关状态判断，包括高版本通知渠道判断，以及跳转去设置引导打开开关工具类。</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NotificationPageHelper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isNotificationOpen</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        NotificationManagerCompat manager = NotificationManagerCompat.from(context);</span><br><span class="line">        <span class="comment">// areNotificationsEnabled方法的有效性官方只最低支持到API 19，</span></span><br><span class="line">        <span class="comment">// 低于19的仍可调用此方法不过只会返回true，即默认为用户已经开启了通知。</span></span><br><span class="line">        <span class="keyword">if</span> (manager.areNotificationsEnabled()) &#123;</span><br><span class="line">            <span class="keyword">return</span> isNotifyPushChannelEnable(context);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> manager.areNotificationsEnabled();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通知渠道的开关</span></span><br><span class="line"><span class="comment">     * 8.0以上增加对通知渠道开关的判断</span></span><br><span class="line"><span class="comment">     * 主要是为了解决vivo、oppo等手机对应渠道通知大概率会被关闭问题</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isNotifyPushChannelEnable</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= <span class="number">26</span>) &#123;</span><br><span class="line">            NotificationChannel channel = ((NotificationManager) context.getSystemService(NOTIFICATION_SERVICE))</span><br><span class="line">                    .getNotificationChannel(NotificationUtils.CHANNEL_ID);</span><br><span class="line">            <span class="keyword">return</span> channel.getImportance() &gt; NotificationManager.IMPORTANCE_NONE;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 跳转到权限设置界面</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">openNotification</span><span class="params">(Context context)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// vivo 点击设置图标&gt;加速白名单&gt;我的app</span></span><br><span class="line">        <span class="comment">//      点击软件管理&gt;软件管理权限&gt;软件&gt;我的app&gt;信任该软件</span></span><br><span class="line">        Intent appIntent = context.getPackageManager().getLaunchIntentForPackage(<span class="string">"com.iqoo.secure"</span>);</span><br><span class="line">        <span class="keyword">if</span>(appIntent != <span class="keyword">null</span>)&#123;</span><br><span class="line">            context.startActivity(appIntent);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// oppo 点击设置图标&gt;应用权限管理&gt;按应用程序管理&gt;我的app&gt;我信任该应用</span></span><br><span class="line">        <span class="comment">//      点击权限隐私&gt;自启动管理&gt;我的app</span></span><br><span class="line">        appIntent = context.getPackageManager().getLaunchIntentForPackage(<span class="string">"com.oppo.safe"</span>);</span><br><span class="line">        <span class="keyword">if</span>(appIntent != <span class="keyword">null</span>)&#123;</span><br><span class="line">            context.startActivity(appIntent);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">        <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) &#123;</span><br><span class="line">        	 <span class="comment">// 8.0以上跳转引导</span></span><br><span class="line">            NotificationManager manager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);</span><br><span class="line">            NotificationChannel channel = manager.getNotificationChannel(NotificationUtils.CHANNEL_ID);</span><br><span class="line">            <span class="keyword">if</span> (channel.getImportance() == NotificationManager.IMPORTANCE_NONE) &#123;</span><br><span class="line">                intent = <span class="keyword">new</span> Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS);</span><br><span class="line">                intent.putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());</span><br><span class="line">                intent.putExtra(Settings.EXTRA_CHANNEL_ID, channel.getId());</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);</span><br><span class="line">            intent.putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());</span><br><span class="line">        	&#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</span><br><span class="line">            intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);</span><br><span class="line">            intent.putExtra(<span class="string">"app_package"</span>, context.getPackageName());</span><br><span class="line">            intent.putExtra(<span class="string">"app_uid"</span>, context.getApplicationInfo().uid);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.GINGERBREAD)&#123;</span><br><span class="line">            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">            intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);</span><br><span class="line">            intent.setData(Uri.fromParts(<span class="string">"package"</span>, context.getPackageName(), <span class="keyword">null</span>));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">            intent.setAction(Intent.ACTION_VIEW);</span><br><span class="line">            intent.setClassName(<span class="string">"com.android.settings"</span>,<span class="string">"com.android.settings.InstalledAppDetails"</span>);</span><br><span class="line">            intent.putExtra(<span class="string">"com.android.settings.ApplicationPkgName"</span>, context.getPackageName());</span><br><span class="line">        &#125;</span><br><span class="line">        context.startActivity(intent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/API对应表/" data-toggle="tooltip" data-placement="top" title="API对应表">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/学习Flutter/" data-toggle="tooltip" data-placement="top" title="11-14-学习Flutter">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" 
+                            src="/img/pay/pay_ali.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/pay/pay_wechat.jpg"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Service" title="Service">Service</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+        
+                         
+                        <li><a href="https://github.com/JamesPxy" target="_blank">我的github</a></li>
+                         
+                        <li><a href="androidweekly.cn" target="_blank">Android Weekly</a></li>
+                         
+                        <li><a href="https://yq.aliyun.com/u/huweihuang" target="_blank">Android博客周刊</a></li>
+                         
+                        <li><a href="https://androidblog.cn" target="_blank">Android开发技术周报</a></li>
+                         
+                        <li><a href="http://gityuan.com/friends" target="_blank">Gityuan大神博客</a></li>
+                         
+                        <li><a href="https://www.wanandroid.com" target="_blank">Wan Android社区</a></li>
+                         
+                        <li><a href="https://hexo.io/zh-cn/docs/writing" target="_blank">Hexo 文档社区</a></li>
+                         
+                
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JamesPxy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; JamesPxy 2019 
+                    <br>
+                    Theme by <a target="_blank" href="http://beantech.org">BeanTech</a> 
+                  <!-- author re-Ported from  -->
+                  <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a target="_blank" href="http://www.huweihuang.com">hwh</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe> 
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="../../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../../js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://pengxiaoyong.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://pengxiaoyong.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

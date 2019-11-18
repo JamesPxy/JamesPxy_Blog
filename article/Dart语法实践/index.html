@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JamesPxy  Blog-JamesPxy  blog">
+    <meta name="keyword"  content="king JamesPxy">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Dart语法实践 - 彭晓勇 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://pengxiaoyong.cn/article/Dart语法实践/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="../../css/beantech.min.css">
+
+    <link rel="stylesheet" href="../../css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="../../css/highlight.css">
+
+    <link rel="stylesheet" href="../../css/widget.css">
+
+    <link rel="stylesheet" href="../../css/rocket.css">
+
+    <link rel="stylesheet" href="../../css/signature.css">
+
+    <link rel="stylesheet" href="../../css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_header.png')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Android" title="Android">Android</a>
+                            
+                        </div>
+                        <h1>Dart语法实践</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by JamesPxy on
+                            2019-11-11
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">彭晓勇</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="dart在线coding网站">Dart在线coding网站：</h1>
+<ul>
+<li><a href="https://repl.it/languages/dart" target="_blank" rel="noopener">在线coding</a></li>
+</ul>
+<h1 id="map-list">Map List</h1>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> arr1 = &lt;<span class="built_in">String</span>&gt;[<span class="string">'Tom'</span>, <span class="string">'Andy'</span>, <span class="string">'Jack'</span>];</span><br><span class="line">	<span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">List</span>&lt;<span class="built_in">int</span>&gt;.of([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);</span><br><span class="line">	arr2.add(<span class="number">499</span>);</span><br><span class="line">	arr2.forEach((v) =&gt; <span class="built_in">print</span>(<span class="string">'<span class="subst">$&#123;v&#125;</span>'</span>));</span><br><span class="line">	<span class="built_in">print</span>(arr2 <span class="keyword">is</span> <span class="built_in">List</span>&lt;<span class="built_in">int</span>&gt;); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> map1 = &lt;<span class="built_in">String</span>, <span class="built_in">String</span>&gt;&#123;<span class="string">'name'</span>: <span class="string">'Tom'</span>,<span class="string">'sex'</span>: <span class="string">'male'</span>,&#125;;</span><br><span class="line">	<span class="keyword">var</span> map2 = <span class="keyword">new</span> <span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="built_in">String</span>&gt;();</span><br><span class="line">	map2[<span class="string">'name'</span>] = <span class="string">'Tom'</span>;</span><br><span class="line">	map2[<span class="string">'sex'</span>] = <span class="string">'male'</span>;</span><br><span class="line">	map2.forEach((k,v) =&gt; <span class="built_in">print</span>(<span class="string">'<span class="subst">$&#123;k&#125;</span>: <span class="subst">$&#123;v&#125;</span>'</span>)); </span><br><span class="line">	<span class="built_in">print</span>(map2 <span class="keyword">is</span> <span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="built_in">String</span>&gt;); <span class="comment">// true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="dart-可选命名参数和可选参数">Dart 可选命名参数和可选参数</h1>
+<p>有时，一个函数中可能需要传递多个参数。那么，如何让这类函数的参数声明变得更加优雅、可维护，同时降低调用者的使用成本呢？C++ 与 Java 的做法是，提供函数的重载，即提供同名但参数不同的函数。<br>
+但 Dart 认为重载会导致混乱，因此从设计之初就不支持重载，而是提供了可选命名参数和可选参数。</p>
+<p>具体方式是，在声明函数时：给参数增加{}，以 paramName: value 的方式指定调用参数，<br>
+也就是可选命名参数；给参数增加 []，则意味着这些参数是可以忽略的，也就是可选参数。<br>
+在使用这两种方式定义函数时，我们还可以在参数未传递时设置默认值。我以一个只有两个参数的简单函数为例，来和你说明这两种方式的具体用法：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//要达到可选命名参数的用法，那就在定义函数的时候给参数加上 &#123;&#125;</span></span><br><span class="line"><span class="keyword">void</span> enable1Flags(&#123;<span class="built_in">bool</span> bold, <span class="built_in">bool</span> hidden&#125;) =&gt; <span class="built_in">print</span>(<span class="string">"$bold , $hidden"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义可选命名参数时增加默认值</span></span><br><span class="line"><span class="keyword">void</span> enable2Flags(&#123;<span class="built_in">bool</span> bold = <span class="keyword">true</span>, <span class="built_in">bool</span> hidden = <span class="keyword">false</span>&#125;) =&gt; <span class="built_in">print</span>(<span class="string">"$bold ,$hidden"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//可忽略的参数在函数定义时用[]符号指定</span></span><br><span class="line"><span class="keyword">void</span> enable3Flags(<span class="built_in">bool</span> bold, [<span class="built_in">bool</span> hidden]) =&gt; <span class="built_in">print</span>(<span class="string">"$bold ,$hidden"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义可忽略参数时增加默认值</span></span><br><span class="line"><span class="keyword">void</span> enable4Flags(<span class="built_in">bool</span> bold, [<span class="built_in">bool</span> hidden = <span class="keyword">false</span>]) =&gt; <span class="built_in">print</span>(<span class="string">"$bold ,$hidden"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//可选命名参数函数调用</span></span><br><span class="line">enable1Flags(bold: <span class="keyword">true</span>, hidden: <span class="keyword">false</span>); <span class="comment">//true, false</span></span><br><span class="line">enable1Flags(bold: <span class="keyword">true</span>); <span class="comment">//true, null</span></span><br><span class="line">enable2Flags(bold: <span class="keyword">false</span>); <span class="comment">//false, false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//可忽略参数函数调用</span></span><br><span class="line">enable3Flags(<span class="keyword">true</span>, <span class="keyword">false</span>); <span class="comment">//true, false</span></span><br><span class="line">enable3Flags(<span class="keyword">true</span>,); <span class="comment">//true, null</span></span><br><span class="line">enable4Flags(<span class="keyword">true</span>); <span class="comment">//true, false</span></span><br><span class="line">enable4Flags(<span class="keyword">true</span>,<span class="keyword">true</span>); <span class="comment">// true, true</span></span><br></pre></td></tr></table></figure>
+<h1 id="运算符">运算符</h1>
+<p>运算符Dart 和绝大部分编程语言的运算符一样，所以你可以用熟悉的方式去执行程序代码运算。不过，Dart 多了几个额外的运算符，用于简化处理变量实例缺失（即 null）的情况。</p>
+<ul>
+<li>?. 运算符：假设 Point 类有 printInfo() 方法，p 是 Point 的一个可能为 null 的实例。那么，p 调用成员方法的安全代码，可以简化为 p?.printInfo() ，表示 p 为 null 的时候跳过，避免抛出异常。</li>
+<li>??= 运算符：如果 a 为 null，则给 a 赋值 value，否则跳过。这种用默认值兜底的赋值语句在 Dart 中我们可以用 a ??= value 表示。</li>
+<li>?? 运算符：如果 a 不为 null，返回 a 的值，否则返回 b。在 Java 或者 C++ 中，我们需要通过三元表达式 (a != null)? a : b 来实现这种情况。而在 Dart 中，这类代码可以简化为 a ?? b。</li>
+</ul>
+<h1 id="dart核心特性实践">Dart核心特性实践</h1>
+<p>可选参数，with多继承，重载运算符等</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Meta</span> </span>&#123;</span><br><span class="line">  <span class="built_in">double</span> price;</span><br><span class="line">  <span class="built_in">String</span> name;</span><br><span class="line">  <span class="comment">// 成员变量初始化语法糖</span></span><br><span class="line">  Meta(<span class="keyword">this</span>.name, <span class="keyword">this</span>.price);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">PrintHelper</span> </span>&#123;</span><br><span class="line">  printInfo() =&gt; <span class="built_in">print</span>(getInfo());</span><br><span class="line">  getInfo();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Item</span> <span class="keyword">extends</span> <span class="title">Meta</span> <span class="title">with</span> <span class="title">PrintHelper</span> </span>&#123;</span><br><span class="line">  <span class="built_in">int</span> count;</span><br><span class="line">  Item(name, price, &#123;<span class="built_in">int</span> count = <span class="number">1</span>&#125;): <span class="keyword">super</span>(name, price) &#123;</span><br><span class="line">    <span class="keyword">this</span>.count = count;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 重载 + 运算符，将商品对象合并为套餐商品</span></span><br><span class="line">  Item <span class="keyword">operator</span>+(Item item) =&gt; Item(name + item.name, price + item.price); </span><br><span class="line">    <span class="meta">@override</span></span><br><span class="line">  getInfo() =&gt; <span class="string">'''</span></span><br><span class="line"><span class="string">    商品名: $name</span></span><br><span class="line"><span class="string">    单价: $price</span></span><br><span class="line"><span class="string">    数量: $count</span></span><br><span class="line"><span class="string">    ---------------</span></span><br><span class="line"><span class="string">'''</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//with 表示以非继承的方式复用了另一个类的成员变量及函数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShoppingCart</span> <span class="keyword">extends</span> <span class="title">Meta</span> <span class="title">with</span> <span class="title">PrintHelper</span></span>&#123;</span><br><span class="line">  <span class="built_in">DateTime</span> date;</span><br><span class="line">  <span class="built_in">String</span> code;</span><br><span class="line">  <span class="built_in">List</span>&lt;Item&gt; bookings;</span><br><span class="line">  <span class="comment">// 以归纳合并方式求和</span></span><br><span class="line">  <span class="built_in">double</span> <span class="keyword">get</span> price =&gt; bookings.reduce((value, element) =&gt; value + element).price;</span><br><span class="line">  <span class="comment">// 默认初始化函数，转发至 withCode 函数</span></span><br><span class="line">  ShoppingCart(&#123;name&#125;) : <span class="keyword">this</span>.withCode(name:name, code:<span class="keyword">null</span>);</span><br><span class="line">  <span class="comment">//withCode 初始化方法，使用语法糖和初始化列表进行赋值，并调用父类初始化方法</span></span><br><span class="line">  ShoppingCart.withCode(&#123;name, <span class="keyword">this</span>.code&#125;) : date = <span class="built_in">DateTime</span>.now(), <span class="keyword">super</span>(name,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  getBookingInfo() &#123;</span><br><span class="line">    <span class="built_in">String</span> str = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span> (Item item <span class="keyword">in</span> bookings) &#123;</span><br><span class="line">      str += item.getInfo();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//?? 运算符表示为 code 不为 null，则用原值，否则使用默认值 " 没有 "</span></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  getInfo() =&gt; <span class="string">'''</span></span><br><span class="line"><span class="string">购物车信息:</span></span><br><span class="line"><span class="string">-----------------------------</span></span><br><span class="line"><span class="string">  商品列表：</span></span><br><span class="line"><span class="string">    ---------------</span></span><br><span class="line"><span class="string"><span class="subst">$&#123; getBookingInfo() &#125;</span></span></span><br><span class="line"><span class="string">  用户名: $name</span></span><br><span class="line"><span class="string">  优惠码: <span class="subst">$&#123;code??<span class="string">" 没有 "</span>&#125;</span></span></span><br><span class="line"><span class="string">  总价: $price</span></span><br><span class="line"><span class="string">  Date: $date</span></span><br><span class="line"><span class="string">-----------------------------</span></span><br><span class="line"><span class="string">'''</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  ShoppingCart.withCode(name:<span class="string">'张三'</span>, code:<span class="string">'123456'</span>)</span><br><span class="line">  ..bookings = [Item(<span class="string">'苹果'</span>,<span class="number">10.0</span>, count: <span class="number">10</span>), Item(<span class="string">'鸭梨'</span>,<span class="number">20.0</span>, count: <span class="number">5</span>)]</span><br><span class="line">  ..printInfo();</span><br><span class="line"></span><br><span class="line">  ShoppingCart(name:<span class="string">'李四'</span>)</span><br><span class="line">  ..bookings = [Item(<span class="string">'香蕉'</span>,<span class="number">15.0</span>), Item(<span class="string">'西瓜'</span>,<span class="number">40.0</span>)]</span><br><span class="line">  ..printInfo();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="极客时间专栏flutter核心技术与实战的全部代码示例">极客时间专栏《Flutter核心技术与实战》的全部代码示例：</h1>
+<p><a href="https://github.com/cyndibaby905/flutter_core_demo" target="_blank" rel="noopener">https://github.com/cyndibaby905/flutter_core_demo</a></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/Android/开发常用adb命令总结/" data-toggle="tooltip" data-placement="top" title="常用adb命令">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/深入理解JVM垃圾回收算法/" data-toggle="tooltip" data-placement="top" title="深入理解JVM垃圾回收算法">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" 
+                            src="/img/pay/pay_ali.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/pay/pay_wechat.jpg"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#dart在线coding网站"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Dart&#x5728;&#x7EBF;coding&#x7F51;&#x7AD9;&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#map-list"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Map List</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#dart-可选命名参数和可选参数"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Dart &#x53EF;&#x9009;&#x547D;&#x540D;&#x53C2;&#x6570;&#x548C;&#x53EF;&#x9009;&#x53C2;&#x6570;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#运算符"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x8FD0;&#x7B97;&#x7B26;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#dart核心特性实践"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Dart&#x6838;&#x5FC3;&#x7279;&#x6027;&#x5B9E;&#x8DF5;</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#极客时间专栏flutter核心技术与实战的全部代码示例"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x6781;&#x5BA2;&#x65F6;&#x95F4;&#x4E13;&#x680F;&#x300A;Flutter&#x6838;&#x5FC3;&#x6280;&#x672F;&#x4E0E;&#x5B9E;&#x6218;&#x300B;&#x7684;&#x5168;&#x90E8;&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Android" title="Android">Android</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+        
+                         
+                        <li><a href="https://github.com/JamesPxy" target="_blank">我的github</a></li>
+                         
+                        <li><a href="androidweekly.cn" target="_blank">Android Weekly</a></li>
+                         
+                        <li><a href="https://yq.aliyun.com/u/huweihuang" target="_blank">Android博客周刊</a></li>
+                         
+                        <li><a href="https://androidblog.cn" target="_blank">Android开发技术周报</a></li>
+                         
+                        <li><a href="http://gityuan.com/friends" target="_blank">Gityuan大神博客</a></li>
+                         
+                        <li><a href="https://www.wanandroid.com" target="_blank">Wan Android社区</a></li>
+                         
+                        <li><a href="https://hexo.io/zh-cn/docs/writing" target="_blank">Hexo 文档社区</a></li>
+                         
+                
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JamesPxy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; JamesPxy 2019 
+                    <br>
+                    Theme by <a target="_blank" href="http://beantech.org">BeanTech</a> 
+                  <!-- author re-Ported from  -->
+                  <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a target="_blank" href="http://www.huweihuang.com">hwh</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huweihuang&repo=hexo-theme-huweihuang&type=star&count=true" >
+                    </iframe> 
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="../../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../../js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://pengxiaoyong.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://pengxiaoyong.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
