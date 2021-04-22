@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -213,13 +213,6 @@
 
     <a href="/article/API对应表/">
         <h2 class="post-title">
-            
-                <i class="fa fa-thumb-tack" style="color:#F4711F" ></i>
-                <!-- <i class="fa fa-thumb-tack" style="color:#F89E8C" ></i> -->
-                <!-- <i class="fa fa-thumb-tack" style="color:#1CB7ED" ></i> -->
-                <font color=#F4711F>置顶</font>
-                <!-- <font color=#F89E8C>置顶</font>  -->
-                <!-- <font color=#1CB7ED>置顶</font>  -->
                                  
             API对应表
         </h2>
@@ -459,6 +452,43 @@ Map List
 
 <div class="post-preview">
 
+    <a href="/article/Android中进程保活方案总结/">
+        <h2 class="post-title">
+                                 
+            Android中进程保活方案总结
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1. 概述
+1.1 Android中进程被杀场景
+
+1.2 进程保活策略图
+
+2. 进程运行期间保活
+Android 中对于内存的回收，主要依靠 Lowmemorykiller 来完成，是一种根据 OOM_ADJ 阈值级别触发相应力度的内存回收的机制。在 Lowmemorykiller 回收内存时会根据进程的级别优先杀死 OOM_ADJ 比较大的进程，对于优先级相同的进程则进一步受到进程所占......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2019-10-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#进程保活" title="进程保活">进程保活</a>
+            
+              <a href="/tags/#Android" title="Android">Android</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/Android/Android View中的getWidth和getMeasuredWidth的区别/">
         <h2 class="post-title">
                                  
@@ -524,41 +554,6 @@ $ git comm......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/Android/2018-9-29-适配踩坑日记/">
-        <h2 class="post-title">
-                                 
-            监听Android通知栏消息适配
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.关于vivo手机真机调试，安装失败
-在gradle.properties，添加
-android.injected.testOnly = false
-
-2.OPPO短信监听的action有改变
-	 &lt;!--oppo 手机的短信action--&gt;
-     &lt;action android:name=&quot;android.provider.OppoSpeechAssis......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2018-09-29
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Android" title="Android">Android</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -600,6 +595,8 @@ android.injected.testOnly = false
     <div class="tags">
         
             
+            <a href="/tags/#进程保活" title="进程保活" rel="1">进程保活</a>
+            
         
             
             <a href="/tags/#随笔" title="随笔" rel="2">随笔</a>
@@ -614,19 +611,11 @@ android.injected.testOnly = false
             
         
             
+            <a href="/tags/#Android" title="Android" rel="9">Android</a>
+            
+        
+            
             <a href="/tags/#SQLite" title="SQLite" rel="1">SQLite</a>
-            
-        
-            
-            <a href="/tags/#Android" title="Android" rel="8">Android</a>
-            
-        
-            
-            <a href="/tags/#gradle" title="gradle" rel="1">gradle</a>
-            
-        
-            
-            <a href="/tags/#经验总结" title="经验总结" rel="1">经验总结</a>
             
         
             
@@ -634,19 +623,19 @@ android.injected.testOnly = false
             
         
             
+            <a href="/tags/#经验总结" title="经验总结" rel="1">经验总结</a>
+            
+        
+            
             <a href="/tags/#Java" title="Java" rel="3">Java</a>
             
         
             
-            <a href="/tags/#AIDL" title="AIDL" rel="1">AIDL</a>
+            <a href="/tags/#技术栈" title="技术栈" rel="3">技术栈</a>
             
         
             
             <a href="/tags/#算法" title="算法" rel="1">算法</a>
-            
-        
-            
-            <a href="/tags/#技术栈" title="技术栈" rel="3">技术栈</a>
             
         
             
@@ -679,6 +668,14 @@ android.injected.testOnly = false
         
             
             <a href="/tags/#adb" title="adb" rel="1">adb</a>
+            
+        
+            
+            <a href="/tags/#gradle" title="gradle" rel="1">gradle</a>
+            
+        
+            
+            <a href="/tags/#AIDL" title="AIDL" rel="1">AIDL</a>
             
         
     </div>
@@ -786,7 +783,7 @@ android.injected.testOnly = false
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/11/">November 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/11/">November 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
@@ -828,7 +825,7 @@ android.injected.testOnly = false
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; JamesPxy 2019 
+                    Copyright &copy; JamesPxy 2021 
                     <br>
                     Theme by <a target="_blank" href="http://beantech.org">BeanTech</a> 
                   <!-- author re-Ported from  -->

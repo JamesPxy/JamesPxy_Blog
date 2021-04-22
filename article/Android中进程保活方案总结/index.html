@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Just try how to write a blog - 彭晓勇 | Blog
+          Android中进程保活方案总结 - 彭晓勇 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://pengxiaoyong.cn/article/Just-try-how-to-write-a-blog/">
+    <link rel="canonical" href="http://pengxiaoyong.cn/article/Android中进程保活方案总结/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/foods.webp')
+            background-image: url('/img/article_header/home_apple.webp')
             /*post*/
         
     }
@@ -88,14 +88,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#进程保活" title="进程保活">进程保活</a>
+                            
                               <a class="tag" href="/tags/#Android" title="Android">Android</a>
                             
                         </div>
-                        <h1>Just try how to write a blog</h1>
+                        <h1>Android中进程保活方案总结</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by JamesPxy on
-                            2019-11-06
+                            2019-10-22
                         </span>
                     </div>
                 
@@ -212,15 +214,60 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="1some-hexo-command">1.Some hexo command:</h1>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"&lt;post name&gt;"</span> <span class="comment"># you can change post to another layout if you want</span></span><br><span class="line">hexo clean &amp;&amp; hexo generate <span class="comment"># generate the static file</span></span><br><span class="line">hexo server <span class="comment"># run hexo in local environment</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hexo will push the static files automatically into the specific branch(gh-pages) of your repo!</span></span><br><span class="line">hexo deploy </span><br><span class="line"></span><br><span class="line">hexo clean <span class="comment">#为清除缓存</span></span><br><span class="line">hexo g <span class="comment">#为生成本地文件夹</span></span><br><span class="line">hexo d  <span class="comment">#为发布到github page上</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hexo <span class="built_in">help</span>:</span><br><span class="line">-----------</span><br><span class="line">  clean     Remove generated files and cache.</span><br><span class="line">  config    Get or <span class="built_in">set</span> configurations.</span><br><span class="line">  deploy    Deploy your website.</span><br><span class="line">  generate  Generate static files.</span><br><span class="line">  <span class="built_in">help</span>      Get <span class="built_in">help</span> on a <span class="built_in">command</span>.</span><br><span class="line">  init      Create a new Hexo folder.</span><br><span class="line">  list      List the information of the site</span><br><span class="line">  migrate   Migrate your site from other system to Hexo.</span><br><span class="line">  new       Create a new post.</span><br><span class="line">  publish   Moves a draft post from _drafts to _posts folder.</span><br><span class="line">  render    Render files with renderer plugins.</span><br><span class="line">  server    Start the server.</span><br><span class="line">  version   Display version information.</span><br></pre></td></tr></table></figure>
-<h2 id="11-this-sub-title-javascript">1.1 this sub title  javascript</h2>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>(<span class="string">"https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        anchors.options = &#123;</span><br><span class="line">          visible: <span class="string">'hover'</span>,</span><br><span class="line">          placement: <span class="string">'left'</span>,</span><br><span class="line">          icon: ℬ <span class="comment">// this is the header anchor "unicode" icon</span></span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="2test-java">2.test java</h1>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">       setContentView(R.layout.activity_main);</span><br><span class="line">       BottomNavigationView navView = findViewById(R.id.nav_view);</span><br><span class="line">       mTextMessage = findViewById(R.id.message);</span><br><span class="line">       navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="3测试一下图片">3.测试一下图片</h1>
-<p>Have fun ^_^<br>
-<img src="/img/icon_wechat.png" alt="home_posts_tag-true"></p>
+                <h1 id="1-概述">1. 概述</h1>
+<h2 id="11-android中进程被杀场景">1.1 Android中进程被杀场景</h2>
+<p><img src="/img/daemon/daemon1.jpg" alt="home_posts_tag-true"></p>
+<h2 id="12-进程保活策略图">1.2 进程保活策略图</h2>
+<p><img src="/img/daemon/daemon2.jpg" alt="pic2"></p>
+<h1 id="2-进程运行期间保活">2. 进程运行期间保活</h1>
+<p>Android 中对于内存的回收，主要依靠 Lowmemorykiller 来完成，是一种根据 OOM_ADJ 阈值级别触发相应力度的内存回收的机制。在 Lowmemorykiller 回收内存时会根据进程的级别优先杀死 OOM_ADJ 比较大的进程，对于优先级相同的进程则进一步受到进程所占内存和进程存活时间的影响。<br>
+下图为Android中的进程优先级以及系统回收策略：</p>
+<p><img src="/img/daemon/daemon3.jpg" alt="pic3"></p>
+<p>关于进程分类详见官方文档：链接<br>
+综上，可以得出减少进程被杀死概率无非就是想办法提高进程优先级，减少进程在内存不足等情况下被杀死的概率，以下两种策略本质上是都是提升进程优先级OOM_ADJ。</p>
+<h2 id="21-一像素悬浮activity">2.1 一像素悬浮activity</h2>
+<p>系统一般不会杀死前台进程，所以要使进程常驻，只需要监听系统的锁屏广播：打开屏幕的时候关闭 一个像素的Activity；锁屏的时候开启一个 一个像素的Activity。<br>
+此方案只能尽可能降低APP进程被系统杀掉概率，对于用户主动清理以及内存不足情况下依然会被杀，所以不推荐。</p>
+<h2 id="22-前台服务开启隐藏notification的service">2.2 前台服务，开启隐藏Notification的Service</h2>
+<p>利用 Notification 提升权限,开启前台服务startForeground()，其实就是利用 前台Service的漏洞<br>
+对于 API level &lt; 18 ，调用 startForeground(ID， new Notification())，发送的是空的 Nofication，图标则不会显示；<br>
+对于 API level &gt;= 18 ，在优先级的 KeepLiveService中启动 一个 InnerService，让两个服务同时启动  startFroeground()，且绑定同样的 Id，然后再停掉InnerService<br>
+经测试在8.0及以上这种方案无法隐藏通知栏消息，只有两个service都stop之后才能取消通知栏消息提示。所以这里涉及到权衡控制什么时候该显示“交易猫正在运行”通知栏消息。</p>
+<h1 id="3-进程死后拉活">3. 进程死后拉活</h1>
+<h2 id="31-利用系统广播拉活">3.1 利用系统广播拉活</h2>
+<p>在发生特定系统事件时，系统会发出响应的广播，通过动态注册对应的广播监听器，即可在发生响应事件时拉活。<br>
+常用广播：开机广播、网络变化、文件挂载、屏幕亮灭、锁屏解锁、蓝牙开关、应用安装卸载<br>
+但存在问题如下：<br>
+需要引导用户去开启“自启动”权限，否则会无法接收到系统特定广播，从而无法自启。一般用户不会开启此权限，所以可以作为备用策略。<br>
+系统广播事件不可控，只能保证发生事件时拉活进程，但无法保证进程挂掉后立即拉活。</p>
+<h2 id="32-jobscheduler拉活">3.2 JobScheduler拉活</h2>
+<p>5.0以上基于JobScheduler进行保活，5.0以下通过ALARM_SERVICE，添加重复唤醒闹钟，不停唤醒服务<br>
+当一系列预置的条件被满足时，JobScheduler API为你的应用执行一个操作。与AlarmManager不同的是这个执行时间是不确定的。除此之外，JobScheduler API允许同时执行多个任务。这允许你的应用执行某些指定的任务时不需要考虑时机控制引起的电池消耗。<br>
+需要注意：setPeriodic：按时间间隔执行周期性作业，在Android 5、6平台版本下可以间隔任何时间运行，在Android7.0平台版本上需设置定期作业的间隔时间&gt;=15分钟时才能运行。</p>
+<ul>
+<li><a href="http://www.aoaoyi.com/archives/456.html" target="_blank" rel="noopener">Android服务保活-JobScheduler拉活</a></li>
+</ul>
+<h2 id="33-借助系统notificationlistenerservice-apigt18">3.3 借助系统NotificationListenerService  API&gt;18</h2>
+<p>NotificationListenerService是用来监听手机通知栏消息的，继承NotificationListenerService监听系统通知栏消息进而拉活服务<br>
+缺点：需要用户手动开启通知栏权限，而且存在兼容性问题，在oppo、vivo手机上有可能监听不到通知栏服务。</p>
+<h2 id="34-账号同步机制实现保活accountsync">3.4 账号同步机制实现保活（AccountSync）</h2>
+<p>Android 系统的账号同步机制会定期同步账号进行，利用系统的同步机制进行进程的拉活。<br>
+存在问题：<br>
+SyncAdapter时间进度不高，往往会因为手机处于休眠状态，而时间往后调整，同步间隔最低为1分钟<br>
+用户可以单独停止或者删除，有些手机账号默认是不同步的，需要手动开启<br>
+经我在小米手机上测试如果不开启“自启动”权限并不能在force-stop后拉活进程</p>
+<ul>
+<li><a href="https://github.com/googlesamples/android-BasicSyncAdapter" target="_blank" rel="noopener">谷歌官方账户同步demo</a></li>
+</ul>
+<h2 id="35-应用间相互唤醒第三方广播拉活">3.5 应用间相互唤醒，第三方广播拉活</h2>
+<p>该方案与接收系统广播类似，不同的是该方案为接收第三方 Top 应用广播。通过反编译第三方 Top 应用，如：手机QQ、微信、支付宝、UC浏览器等，以及友盟、信鸽等 SDK，找出它们外发的广播，在应用中进行监听，这样当这些应用发出广播时，就会将我们的应用拉活。<br>
+存在问题：第三方应用的广播属于应用私有，当前版本中有效的广播，在后续版本随时就可能被移除或被改为不外发。以及需要反编译了解多个广播保活才能有所效果。</p>
+<h2 id="36-官方push通道拉活">3.6 官方push通道拉活</h2>
+<p>通过接入官方消息推送渠道达到唤醒APP目的，主要包括：小米、华为、oppo、vivo、魅族等第三方厂商推送，如果国内的Android推送联盟统一了推送渠道后续可能就不需要针对特定厂商去做接入工作了，当然目前看来遥遥无期。眼下接入商官方推送渠道比较靠谱。</p>
+<h2 id="37-利用native进程拉活">3.7 利用Native进程拉活</h2>
+<p>利用 Linux 中的 fork 机制创建 Native 进程，在 Native 进程中监控主进程的存活，当主进程挂掉后，在 Native 进程中立即对主进程进行拉活。在 Android 中所有进程和系统组件的生命周期受 ActivityManagerService 的统一管理。而且，通过 Linux 的 fork 机制创建的进程为纯 Linux 进程，其生命周期不受 Android 的管理。<br>
+该方案在Android5.0 以下版本拉活效果非常好，不受 forcestop 影响，被强制停止的应用依然可以被拉活，但Android5.0 以上系统对 Native 进程等加强了管理，Native 拉活方式失效。<br>
+在 Native 进程中通过死循环或定时器，轮训判断主进程是否存活，如果进程不存活时进行拉活。该方案的很大缺点是不停的轮询执行判断逻辑，非常耗电。以及目前市场上5.0以下设备占有率相对较低，所以不推荐。</p>
 
                 
 
@@ -229,12 +276,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/深入理解JVM垃圾回收算法/" data-toggle="tooltip" data-placement="top" title="深入理解JVM垃圾回收算法">&larr; Previous Post</a>
+                            <a href="/article/Just-try-how-to-write-a-blog/" data-toggle="tooltip" data-placement="top" title="Just try how to write a blog">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/Android中进程保活方案总结/" data-toggle="tooltip" data-placement="top" title="Android中进程保活方案总结">Next Post &rarr;</a>
+                            <a href="/Android/Android View中的getWidth和getMeasuredWidth的区别/" data-toggle="tooltip" data-placement="top" title="探讨Android中View的getWidth( )和getMeasuredWidth( )的区别">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -294,7 +341,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#1some-hexo-command"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1.Some hexo command:</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-this-sub-title-javascript"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1.1 this sub title  javascript</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#2test-java"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2.test java</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#3测试一下图片"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3.&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#x56FE;&#x7247;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#1-概述"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. &#x6982;&#x8FF0;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-android中进程被杀场景"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1.1 Android&#x4E2D;&#x8FDB;&#x7A0B;&#x88AB;&#x6740;&#x573A;&#x666F;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#12-进程保活策略图"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">1.2 &#x8FDB;&#x7A0B;&#x4FDD;&#x6D3B;&#x7B56;&#x7565;&#x56FE;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#2-进程运行期间保活"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. &#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x671F;&#x95F4;&#x4FDD;&#x6D3B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#21-一像素悬浮activity"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">2.1 &#x4E00;&#x50CF;&#x7D20;&#x60AC;&#x6D6E;activity</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#22-前台服务开启隐藏notification的service"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.2 &#x524D;&#x53F0;&#x670D;&#x52A1;&#xFF0C;&#x5F00;&#x542F;&#x9690;&#x85CF;Notification&#x7684;Service</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#3-进程死后拉活"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. &#x8FDB;&#x7A0B;&#x6B7B;&#x540E;&#x62C9;&#x6D3B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#31-利用系统广播拉活"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 &#x5229;&#x7528;&#x7CFB;&#x7EDF;&#x5E7F;&#x64AD;&#x62C9;&#x6D3B;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#32-jobscheduler拉活"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 JobScheduler&#x62C9;&#x6D3B;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#33-借助系统notificationlistenerservice-apigt18"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3.3 &#x501F;&#x52A9;&#x7CFB;&#x7EDF;NotificationListenerService  API&gt;18</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#34-账号同步机制实现保活accountsync"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">3.4 &#x8D26;&#x53F7;&#x540C;&#x6B65;&#x673A;&#x5236;&#x5B9E;&#x73B0;&#x4FDD;&#x6D3B;&#xFF08;AccountSync&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#35-应用间相互唤醒第三方广播拉活"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">3.5 &#x5E94;&#x7528;&#x95F4;&#x76F8;&#x4E92;&#x5524;&#x9192;&#xFF0C;&#x7B2C;&#x4E09;&#x65B9;&#x5E7F;&#x64AD;&#x62C9;&#x6D3B;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#36-官方push通道拉活"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">3.6 &#x5B98;&#x65B9;push&#x901A;&#x9053;&#x62C9;&#x6D3B;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#37-利用native进程拉活"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">3.7 &#x5229;&#x7528;Native&#x8FDB;&#x7A0B;&#x62C9;&#x6D3B;</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -314,6 +361,8 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#进程保活" title="进程保活">进程保活</a>
+                        
                           <a class="tag" href="/tags/#Android" title="Android">Android</a>
                         
                     </div>

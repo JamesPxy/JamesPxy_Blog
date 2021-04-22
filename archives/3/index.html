@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,33 +211,30 @@
 
 <div class="post-preview">
 
-    <a href="/Android/2017-3-7-快速排序/">
+    <a href="/Java/2017-4-14-Timer的schedule和scheduleAtFixedRate方法的区别/">
         <h2 class="post-title">
                                  
-            算法与数据结构
+            Timer的schedule和scheduleAtFixedRate的区别
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            快速排序
-快速排序(Quick Sort)使用分治法策略。
-它的基本思想是：
-选择一个基准数，通过一趟排序将要排序的数据分割成独立的两部分；其中一部分的所有数据都比另外一部分的所有数据都要小。然后，再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。
-快速排序流程：
+            Timer的schedule和scheduleAtFixedRate方法的区别:
+在java中，Timer类主要用于定时性、周期性任务 的触发，这个类中有两个方法比较难理解，那就是schedule和scheduleAtFixedRate方法，在这里就用实例分析一下
 
-从数列中挑出一个基准值。
-将所有比基准值小的摆放在基准前面，所有比基准值大的摆......
+
+schedule方法：“fixed-delay”；如果第一次执行时间被delay了，随后的执行时间按 照 上一次 实际执行完......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by JamesPxy on
-            2017-02-21
+            2017-04-14
         </p>
         <div class="tags">
             
-              <a href="/tags/#算法" title="算法">算法</a>
+              <a href="/tags/#Java" title="Java">Java</a>
             
         </div>
     
@@ -271,6 +268,42 @@
         <div class="tags">
             
               <a href="/tags/#技术栈" title="技术栈">技术栈</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/2017-3-7-快速排序/">
+        <h2 class="post-title">
+                                 
+            算法与数据结构
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            快速排序
+快速排序(Quick Sort)使用分治法策略。
+它的基本思想是：
+选择一个基准数，通过一趟排序将要排序的数据分割成独立的两部分；其中一部分的所有数据都比另外一部分的所有数据都要小。然后，再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。
+快速排序流程：
+
+从数列中挑出一个基准值。
+将所有比基准值小的摆放在基准前面，所有比基准值大的摆......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2017-02-21
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#算法" title="算法">算法</a>
             
         </div>
     
@@ -525,52 +558,6 @@ adb shell
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/Android/如何实现android AppWidget小组件/">
-        <h2 class="post-title">
-                                 
-            Android中的AppWidget(桌面小部件）实现方式
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            如何编写一个AppWidget？
-
-
-编写AppWidget的布局xml界面。
-
-
-编写AppWidget的元数据xml文件。
-	  该xml中定义当前AppWidget使用的
-	  初始化布局，以及初始化宽高。
-	  70*n-30
-
-
-编写AppWidget的控制器类。
-	  要求该类继承自AppWidgetProvider.
-	  重写父类的生命周期方法。
-
-
-清单文件中配置该AppW......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2016-12-21
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Android" title="Android">Android</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -616,6 +603,8 @@ adb shell
     <div class="tags">
         
             
+            <a href="/tags/#进程保活" title="进程保活" rel="1">进程保活</a>
+            
         
             
             <a href="/tags/#随笔" title="随笔" rel="2">随笔</a>
@@ -630,19 +619,11 @@ adb shell
             
         
             
+            <a href="/tags/#Android" title="Android" rel="9">Android</a>
+            
+        
+            
             <a href="/tags/#SQLite" title="SQLite" rel="1">SQLite</a>
-            
-        
-            
-            <a href="/tags/#Android" title="Android" rel="8">Android</a>
-            
-        
-            
-            <a href="/tags/#gradle" title="gradle" rel="1">gradle</a>
-            
-        
-            
-            <a href="/tags/#经验总结" title="经验总结" rel="1">经验总结</a>
             
         
             
@@ -650,19 +631,19 @@ adb shell
             
         
             
+            <a href="/tags/#经验总结" title="经验总结" rel="1">经验总结</a>
+            
+        
+            
             <a href="/tags/#Java" title="Java" rel="3">Java</a>
             
         
             
-            <a href="/tags/#AIDL" title="AIDL" rel="1">AIDL</a>
+            <a href="/tags/#技术栈" title="技术栈" rel="3">技术栈</a>
             
         
             
             <a href="/tags/#算法" title="算法" rel="1">算法</a>
-            
-        
-            
-            <a href="/tags/#技术栈" title="技术栈" rel="3">技术栈</a>
             
         
             
@@ -695,6 +676,14 @@ adb shell
         
             
             <a href="/tags/#adb" title="adb" rel="1">adb</a>
+            
+        
+            
+            <a href="/tags/#gradle" title="gradle" rel="1">gradle</a>
+            
+        
+            
+            <a href="/tags/#AIDL" title="AIDL" rel="1">AIDL</a>
             
         
     </div>
@@ -802,7 +791,7 @@ adb shell
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2019/11/">November 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2019/11/">November 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
@@ -844,7 +833,7 @@ adb shell
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; JamesPxy 2019 
+                    Copyright &copy; JamesPxy 2021 
                     <br>
                     Theme by <a target="_blank" href="http://beantech.org">BeanTech</a> 
                   <!-- author re-Ported from  -->
