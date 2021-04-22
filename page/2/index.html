@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://pengxiaoyong.cn/archives/3/">
+    <link rel="canonical" href="http://pengxiaoyong.cn/page/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -211,26 +211,230 @@
 
 <div class="post-preview">
 
-    <a href="/Java/2017-4-14-Timer的schedule和scheduleAtFixedRate方法的区别/">
+    <a href="/article/How-to-use-Hexo-Theme/">
         <h2 class="post-title">
                                  
-            Timer的schedule和scheduleAtFixedRate的区别
+            How to use  [Hexo] Theme
         </h2>
         <h3 class="post-subtitle">
-            
+            This is hexo theme Demo.
         </h3>
         <div class="post-content-preview">
-            Timer的schedule和scheduleAtFixedRate方法的区别:
-在java中，Timer类主要用于定时性、周期性任务 的触发，这个类中有两个方法比较难理解，那就是schedule和scheduleAtFixedRate方法，在这里就用实例分析一下
+            
+This HuWeihuang theme created by HuWeihuang modified from the original Porter YuHsuan
 
-
-schedule方法：“fixed-delay”；如果第一次执行时间被delay了，随后的执行时间按 照 上一次 实际执行完......
+Live Demo
+Hu Weihuang Blog : www.huweihuang.com
+Install Hexo
+Install Node.js  and Git
+123#For Macbrew install......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by JamesPxy on
-            2017-04-14
+            2017-09-18
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Hexo" title="Hexo">Hexo</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/2018-9-29-适配踩坑日记/">
+        <h2 class="post-title">
+                                 
+            监听Android通知栏消息适配
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.关于vivo手机真机调试，安装失败
+在gradle.properties，添加
+android.injected.testOnly = false
+
+2.OPPO短信监听的action有改变
+	 &lt;!--oppo 手机的短信action--&gt;
+     &lt;action android:name=&quot;android.provider.OppoSpeechAssis......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2018-09-29
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Android" title="Android">Android</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/2018-6-26-RecycleView局部刷新/">
+        <h2 class="post-title">
+                                 
+            RecycleView局部刷新
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.第一种方法：
+12345678   public final void notifyItemChanged(int position, Object payload) &#123;           mObservable.notifyItemRangeChanged(position, 1, payload);       &#125;public void onBindViewHo......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2018-06-26
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#RecycleView" title="RecycleView">RecycleView</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/2018-6-19-DialogFragment实现底部对话框/">
+        <h2 class="post-title">
+                                 
+            DialogFragment实现底部弹框
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.第一种比较常用：设置style样式：
+
+123456789101112131415161718 &lt;style name="Animation" parent="@android:style/Animation"&gt;     &lt;item name="android:windowEnterAnimation"&gt;@anim/push_bottom_in&lt;/item&......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2018-06-19
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#DialogFragment" title="DialogFragment">DialogFragment</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/2018-1-3-first-all-for-the-interview/">
+        <h2 class="post-title">
+                                 
+            All for the interview
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.第三方API
+豆瓣最新热映电影：https://api.douban.com/v2/movie/in_theaters
+2.maxAge与maxStale的区别：
+
+
+maxAge:没有超出maxAge,不管怎么样都是返回缓存数据，超过了maxAge,发起新的请求获取数据更新，请求失败返回缓存数据.
+
+
+maxStale:没有超过maxStale，不管怎么样都返回缓存数据，超过了maxS......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2018-01-03
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#面试" title="面试">面试</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/浅谈AIDL跨进程通信/">
+        <h2 class="post-title">
+                                 
+            浅谈跨进程通信AIDL
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前段时间去面试，都被问到了AIDL的原理和实现，所以必须得写篇博客来总结一下，做到心中有数，有备无患。
+1.概述
+AIDL全称是Android Interface Definition Language，也就是Android接口定义语言。是的，首先我们知道的第一点就是：AIDL是一种语言。既然是一种语言，那么相应的就很自然的衍生出了一些问题：
+
+为什么要设计出这么一门语言？
+它有哪些语法？
+......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2017-11-14
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#AIDL" title="AIDL">AIDL</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Java/Java Volatile关键字详解/">
+        <h2 class="post-title">
+                                 
+            Java Volatile关键字详解
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            今天是17年十月份的最后一天，必须得写份博客来纪念一下！
+1.volatile之可见性：
+对于可见性，Java提供了volatile关键字来保证可见性。
+当一个共享变量被volatile修饰时，它会保证修改的值会立即被更新到主存，当有其他线程需要读取时，它会去内存中读取新值。
+而普通的共享变量不能保证可见性，因为普通共享变量被修改之后，什么时候被写入主存是不确定的，当其他线程去读取时，此时内......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2017-10-31
         </p>
         <div class="tags">
             
@@ -244,30 +448,29 @@ schedule方法：“fixed-delay”；如果第一次执行时间被delay了，�
 
 <div class="post-preview">
 
-    <a href="/Android/2017-2-21-Android-使用webP图片相关/">
+    <a href="/Android/Android开发日常经验总结/">
         <h2 class="post-title">
                                  
-            Android 使用webP图片相关
+            Android开发日常经验总结(1)
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.【腾讯Bugly干货分享】WebP原理和Android支持现状介绍
-原文链接：
-【腾讯Bugly干货分享】WebP原理和Android支持现状介绍
-2.使用NDK技术对Webp图片进行操作的demo（支持Android低版本)
-此demo为编译webP官网提供源码生产so文件，demo里面本地图片存放位置在raw文件里，放在drawable文件下会有问题，主要在于打包压缩之后不能解码里面......
+            话说今天是一年一度的程序员节，怎么能不写篇技术博客来总结一下呢，于是就诞生了Android开发日常经验总结系列文章，今天是第一期。
+1.自定义View注意事项：
+**android  7.0 及以上自定义view 切忌不要使用getHeight() getWidth()方法，要用       getMeasuredHeight()  getMeasuredWidth()方法 **
+不然初始化......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by JamesPxy on
-            2017-02-21
+            2017-10-24
         </p>
         <div class="tags">
             
-              <a href="/tags/#技术栈" title="技术栈">技术栈</a>
+              <a href="/tags/#经验总结" title="经验总结">经验总结</a>
             
         </div>
     
@@ -277,142 +480,23 @@ schedule方法：“fixed-delay”；如果第一次执行时间被delay了，�
 
 <div class="post-preview">
 
-    <a href="/Android/2017-3-7-快速排序/">
+    <a href="/Android/ListView根据内容适配显示高度/">
         <h2 class="post-title">
                                  
-            算法与数据结构
+            ListView根据内容适配显示高度
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            快速排序
-快速排序(Quick Sort)使用分治法策略。
-它的基本思想是：
-选择一个基准数，通过一趟排序将要排序的数据分割成独立的两部分；其中一部分的所有数据都比另外一部分的所有数据都要小。然后，再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。
-快速排序流程：
-
-从数列中挑出一个基准值。
-将所有比基准值小的摆放在基准前面，所有比基准值大的摆......
+            由于listview的onMeasure()的测量模式，当内容不足以占满父类高度时，无论设置wrap_content还是match_parent都无法满足预期控制对应高度，于是需要在匹配数据后动态设置其高度。计算代码如下：
+1234567891011121314151617  public static void setListViewHeightBasedOnChildren(final ......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by JamesPxy on
-            2017-02-21
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#算法" title="算法">算法</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/Android/2017-2-20-Android-Bitmap与DrawAble与byte-与InputStream之间的转换工具类/">
-        <h2 class="post-title">
-                                 
-            Bitmap与Drawable与byte[]与InputStream转换工具类
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Bitmap与DrawAble与byte[]与InputStream之间的转换工具类
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2017-02-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#技术栈" title="技术栈">技术栈</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/Android/2017-2-14-android循环任务实现方式/">
-        <h2 class="post-title">
-                                 
-            循环定时任务的实现方式
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            临时接到任务为了刷WiFi宽带认证时长，需要实现定时循环任务，保证APP有下行流量，不会自动下线，大致实现方式：网络请求每隔4分钟左右去下载一个1.2M的apk，每隔两分钟检查一下当前是否处于认证在线状态，不是则自动去主动认证上网，保证在线状态，刷完或者说耗完时长。
-循环任务实现方式1（Handler+Timer+TimerTask）：
- 12345678910111213141516171......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2017-02-14
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#技术栈" title="技术栈">技术栈</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/Android/2017-1-20-国内非官方API接口/">
-        <h2 class="post-title">
-                                 
-            国内非官方API(可用)
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            目录
-
-电影
-视频
-图片
-音乐
-杂志
-
-电影
-
-猫眼电影 - 支持查询首页电影列表，电影详情(含评论)，本地影院和影院详情，选座。
-
-视频
-
-Bilibili - 支持登录，我的信息，番剧专题，视频/专题收藏、关注，番剧，弹幕等。
-
-图片
-
-Bing每日壁纸 - 支持图片URL和图片描述，可获取不同地区的数据
-
-音乐
-
-网易云音乐 - 支持获取用户歌单，歌单详情，歌曲URL。
-QQ音乐 - ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2017-01-20
+            2017-07-16
         </p>
         <div class="tags">
             
@@ -426,131 +510,28 @@ QQ音乐 - ......
 
 <div class="post-preview">
 
-    <a href="/Android/2017-1-19-浅谈Android中的网络请求HttpUrlConnection/">
+    <a href="/article/国内访问github慢与git clone工程慢的解决方法/">
         <h2 class="post-title">
                                  
-            浅谈HttpUrlConnettion网络请求
+            解决git clone工程慢问题
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            1.几种常见的网络请求方式
-
-
-GET： 请求指定的页面信息，它本质就是发送一个请求来取得服务器上的某一资源。资源通过一组HTTP头和呈现数据（如HTML文本，或者图片或者视频等）返回给客户端。GET请求中，永远不会包含呈现数据。
-
-
-HEAD： 只请求页面的首部,HEAD和GET本质是一样的，区别在于HEAD不含有呈现数据，而仅仅是HTTP头信息，用于检查对象是否存在，以及得到对象的元数据......
+            1. 快速访问github网站
+修改host文件配置，增加映射
+12345678910111213-       浏览器访问IPAddress.com- -       分别获得github.com和github.global.ssl.fastly.net对应的ip- -       修改本地host- -       打开Host文件   c:\windows\system32\drive......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by JamesPxy on
-            2017-01-19
+            2017-07-10
         </p>
         <div class="tags">
             
-              <a href="/tags/#Android" title="Android">Android</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/Android/2017-1-11-gradle配置及多渠道打包/">
-        <h2 class="post-title">
-                                 
-            Android Studio gradle配置
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.使用配置文件管理app版本
-因为Android Studio是使用gradle进行项目构建的，这使得通过配置文件进行版本管理成为可能。
-使用配置文件管理app版本很简单，就是定义一个properties文件，里面有版本号、版本名等版本信息，只需要在build.gradle中引用该文件，使用该配置文件的属性，进行项目的版本号等版本信息的赋值，就可以实现版本号的动态控制（**注意：**在gr......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2017-01-11
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#gradle" title="gradle">gradle</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/LIFE/程序员的自我修养（一）/">
-        <h2 class="post-title">
-                                 
-            程序员的自我修养
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.关于“快速”学习编程
-对于“如何快速学习编程”这个问题，其实我真的不知道何谓“快速”。我觉得，通过遵循以下建议，你将很快地学习编程（至少你的成长/进步会快）。但你真的不应该眼中只有“快速”。只追求速度反而会拖你的后腿，让你自食其果。“快速”学习的唯一可持续方法或许是采用浸泡式教学法。找到一种方法让自己沉浸在编程中很长一段时间（几个月？）。为了让它奏效，你需要不断推动自己去学习新的东西，并......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2016-12-26
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#随笔" title="随笔">随笔</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/Android/使用adb shell访问app数据库/">
-        <h2 class="post-title">
-                                 
-            使用adb命令去访问app数据库内容
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            步骤如下：
-1.连上已经root的手机或者模拟器 运行
-adb devices//确保可以找到当前设备   且只能是一个
-adb shell
-
-2.进入到需要查看数据库的安装包路径下
-#cd   data/data/packagename(com.example.test)
-#ls //列出当前目录下文件列表
-#cd  databases  //进入到数据库文件夹 可继续 #ls
-#sqli......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2016-12-23
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#SQLite" title="SQLite">SQLite</a>
+              <a href="/tags/#git" title="git">git</a>
             
         </div>
     
@@ -565,12 +546,12 @@ adb shell
 <ul class="pager">
     
         <li class="previous">
-            <a href="/archives/2/">&larr; Newer Posts</a>
+            <a href="/">&larr; Newer Posts</a>
         </li>
     
     
         <li class="next">
-            <a href="/archives/4/">Older Posts &rarr;</a>
+            <a href="/page/3/">Older Posts &rarr;</a>
         </li>
     
 </ul>
@@ -791,7 +772,7 @@ adb shell
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2019/11/">November 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/11/">November 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/01/">January 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
