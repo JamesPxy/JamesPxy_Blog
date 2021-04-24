@@ -51,13 +51,6 @@
     </url>
 
     <url>
-        <loc>http://pengxiaoyong.cn/tags/AIDL/</loc>
-        <lastmod>2019-11-14T03:16:33.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://pengxiaoyong.cn/tags/%E7%AE%97%E6%B3%95/</loc>
         <lastmod>2019-11-14T03:16:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -100,13 +93,6 @@
     </url>
 
     <url>
-        <loc>http://pengxiaoyong.cn/tags/Java/</loc>
-        <lastmod>2019-11-15T10:15:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://pengxiaoyong.cn/tags/adb/</loc>
         <lastmod>2019-11-15T10:15:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -135,15 +121,29 @@
     </url>
 
     <url>
+        <loc>http://pengxiaoyong.cn/tags/AIDL/</loc>
+        <lastmod>2021-04-24T01:54:37.296Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pengxiaoyong.cn/tags/Java/</loc>
+        <lastmod>2021-04-24T01:54:52.394Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://pengxiaoyong.cn/tags/%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB/</loc>
-        <lastmod>2021-04-22T14:14:56.489Z</lastmod>
+        <lastmod>2021-04-24T01:54:56.561Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://pengxiaoyong.cn/tags/Android/</loc>
-        <lastmod>2021-04-22T14:14:56.489Z</lastmod>
+        <lastmod>2021-04-24T01:55:31.424Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -211,6 +211,89 @@
 
 <div class="post-preview">
 
+    <a href="/article/Android中进程保活方案总结/">
+        <h2 class="post-title">
+            
+                <i class="fa fa-thumb-tack" style="color:#F4711F" ></i>
+                <!-- <i class="fa fa-thumb-tack" style="color:#F89E8C" ></i> -->
+                <!-- <i class="fa fa-thumb-tack" style="color:#1CB7ED" ></i> -->
+                <font color=#F4711F>置顶</font>
+                <!-- <font color=#F89E8C>置顶</font>  -->
+                <!-- <font color=#1CB7ED>置顶</font>  -->
+                                 
+            Android中进程保活方案总结
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1. 概述
+1.1 Android中进程被杀场景
+
+1.2 进程保活策略图
+
+2. 进程运行期间保活
+Android 中对于内存的回收，主要依靠 Lowmemorykiller 来完成，是一种根据 OOM_ADJ 阈值级别触发相应力度的内存回收的机制。在 Lowmemorykiller 回收内存时会根据进程的级别优先杀死 OOM_ADJ 比较大的进程，对于优先级相同的进程则进一步受到进程所占......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2019-10-22
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#进程保活" title="进程保活">进程保活</a>
+            
+              <a href="/tags/#Android" title="Android">Android</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/深入理解JVM垃圾回收算法/">
+        <h2 class="post-title">
+            
+                <i class="fa fa-thumb-tack" style="color:#F4711F" ></i>
+                <!-- <i class="fa fa-thumb-tack" style="color:#F89E8C" ></i> -->
+                <!-- <i class="fa fa-thumb-tack" style="color:#1CB7ED" ></i> -->
+                <font color=#F4711F>置顶</font>
+                <!-- <font color=#F89E8C>置顶</font>  -->
+                <!-- <font color=#1CB7ED>置顶</font>  -->
+                                 
+            深入理解JVM垃圾回收算法
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1.标记——清除算法（Mark-Sweep）
+​   标记——清除算法是第一种使用和比较完善的垃圾回收算法，算法分为两个过程：1、标记正所有需要回收的对象2、标记完成后清除被标记的对象。其标记的过程就是判断对象有效性，执行可达性分析的过程。其执行流程图大体如何下所示：
+
+​   同样，我们也借助现实的场景进行描述。图书管里有好多人在看书，图书管理员想要收集起没有被看的书的时候，他决定让所有正......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2019-11-07
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Java" title="Java">Java</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/article/Dart语法实践/">
         <h2 class="post-title">
             
@@ -243,6 +326,48 @@ Map List
         <div class="tags">
             
               <a href="/tags/#Android" title="Android">Android</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/Android/浅谈AIDL跨进程通信/">
+        <h2 class="post-title">
+            
+                <i class="fa fa-thumb-tack" style="color:#F4711F" ></i>
+                <!-- <i class="fa fa-thumb-tack" style="color:#F89E8C" ></i> -->
+                <!-- <i class="fa fa-thumb-tack" style="color:#1CB7ED" ></i> -->
+                <font color=#F4711F>置顶</font>
+                <!-- <font color=#F89E8C>置顶</font>  -->
+                <!-- <font color=#1CB7ED>置顶</font>  -->
+                                 
+            浅谈跨进程通信AIDL
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前段时间去面试，都被问到了AIDL的原理和实现，所以必须得写篇博客来总结一下，做到心中有数，有备无患。
+1.概述
+AIDL全称是Android Interface Definition Language，也就是Android接口定义语言。是的，首先我们知道的第一点就是：AIDL是一种语言。既然是一种语言，那么相应的就很自然的衍生出了一些问题：
+
+为什么要设计出这么一门语言？
+它有哪些语法？
+......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by JamesPxy on
+            2017-11-14
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#AIDL" title="AIDL">AIDL</a>
             
         </div>
     
@@ -390,38 +515,6 @@ adb pull /data/anr/traces.txt
 
 <div class="post-preview">
 
-    <a href="/article/深入理解JVM垃圾回收算法/">
-        <h2 class="post-title">
-                                 
-            深入理解JVM垃圾回收算法
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.标记——清除算法（Mark-Sweep）
-​   标记——清除算法是第一种使用和比较完善的垃圾回收算法，算法分为两个过程：1、标记正所有需要回收的对象2、标记完成后清除被标记的对象。其标记的过程就是判断对象有效性，执行可达性分析的过程。其执行流程图大体如何下所示：
-
-​   同样，我们也借助现实的场景进行描述。图书管里有好多人在看书，图书管理员想要收集起没有被看的书的时候，他决定让所有正......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2019-11-07
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Java" title="Java">Java</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/article/Just-try-how-to-write-a-blog/">
         <h2 class="post-title">
                                  
@@ -441,43 +534,6 @@ adb pull /data/anr/traces.txt
             2019-11-06
         </p>
         <div class="tags">
-            
-              <a href="/tags/#Android" title="Android">Android</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/Android中进程保活方案总结/">
-        <h2 class="post-title">
-                                 
-            Android中进程保活方案总结
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1. 概述
-1.1 Android中进程被杀场景
-
-1.2 进程保活策略图
-
-2. 进程运行期间保活
-Android 中对于内存的回收，主要依靠 Lowmemorykiller 来完成，是一种根据 OOM_ADJ 阈值级别触发相应力度的内存回收的机制。在 Lowmemorykiller 回收内存时会根据进程的级别优先杀死 OOM_ADJ 比较大的进程，对于优先级相同的进程则进一步受到进程所占......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2019-10-22
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#进程保活" title="进程保活">进程保活</a>
             
               <a href="/tags/#Android" title="Android">Android</a>
             
@@ -513,40 +569,6 @@ Android 中对于内存的回收，主要依靠 Lowmemorykiller 来完成，是�
         <div class="tags">
             
               <a href="/tags/#源码分析" title="源码分析">源码分析</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/Android/Git使用小结/">
-        <h2 class="post-title">
-                                 
-            Git使用小结
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1.git  全局配置  --loacl  --system --global
- $ git config --global user.name author #将用户名设为author
- $ git config --global user.email author@corpmail.com #将用户邮箱设为author@corpmail.com
-
-2.新增合并提交：
-$ git comm......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by JamesPxy on
-            2019-03-04
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Git" title="Git">Git</a>
             
         </div>
     
@@ -599,19 +621,19 @@ $ git comm......
             
         
             
-            <a href="/tags/#随笔" title="随笔" rel="2">随笔</a>
-            
-        
-            
-            <a href="/tags/#Interview" title="Interview" rel="1">Interview</a>
-            
-        
-            
             <a href="/tags/#MarkDown" title="MarkDown" rel="1">MarkDown</a>
             
         
             
             <a href="/tags/#Android" title="Android" rel="9">Android</a>
+            
+        
+            
+            <a href="/tags/#随笔" title="随笔" rel="2">随笔</a>
+            
+        
+            
+            <a href="/tags/#Interview" title="Interview" rel="1">Interview</a>
             
         
             

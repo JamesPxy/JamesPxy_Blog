@@ -7,8 +7,32 @@
     </url>
 
     <url>
+        <loc>http://pengxiaoyong.cn/article/Dart%E8%AF%AD%E6%B3%95%E5%AE%9E%E8%B7%B5/</loc>
+        <lastmod>2021-04-24T01:55:31.424Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pengxiaoyong.cn/article/Android%E4%B8%AD%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/</loc>
-        <lastmod>2021-04-22T14:14:56.489Z</lastmod>
+        <lastmod>2021-04-24T01:54:56.561Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pengxiaoyong.cn/article/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/</loc>
+        <lastmod>2021-04-24T01:54:52.394Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pengxiaoyong.cn/Android/%E6%B5%85%E8%B0%88AIDL%E8%B7%A8%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1/</loc>
+        <lastmod>2021-04-24T01:54:37.296Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -47,14 +71,6 @@
     </url>
 
     <url>
-        <loc>http://pengxiaoyong.cn/article/Dart%E8%AF%AD%E6%B3%95%E5%AE%9E%E8%B7%B5/</loc>
-        <lastmod>2019-11-16T06:29:43.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://pengxiaoyong.cn/article/I-ve-Interviewed-100s-of-Candidates-and-the-Ones-I-Hire-Always-Do-This/</loc>
         <lastmod>2019-11-16T06:28:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -65,14 +81,6 @@
     <url>
         <loc>http://pengxiaoyong.cn/Android/%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</loc>
         <lastmod>2019-11-15T10:15:20.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://pengxiaoyong.cn/article/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/</loc>
-        <lastmod>2019-11-15T10:15:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -169,14 +177,6 @@
     <url>
         <loc>http://pengxiaoyong.cn/Android/2017-2-14-android%E5%BE%AA%E7%8E%AF%E4%BB%BB%E5%8A%A1%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/</loc>
         <lastmod>2019-11-14T03:16:38.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://pengxiaoyong.cn/Android/%E6%B5%85%E8%B0%88AIDL%E8%B7%A8%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1/</loc>
-        <lastmod>2019-11-14T03:16:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
