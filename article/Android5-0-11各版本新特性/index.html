@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          API对应表 - 彭晓勇 | Blog
+          Android5.0~11各版本新特性 - 彭晓勇 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://pengxiaoyong.cn/article/API对应表/">
+    <link rel="canonical" href="http://pengxiaoyong.cn/article/Android5-0-11各版本新特性/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/home_apple.webp')
+            background-image: url('/img/header_img/home_apple.webp')
             /*post*/
         
     }
@@ -91,11 +91,11 @@
                               <a class="tag" href="/tags/#Android" title="Android">Android</a>
                             
                         </div>
-                        <h1>API对应表</h1>
+                        <h1>Android5.0~11各版本新特性</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by JamesPxy on
-                            2019-11-16
+                            2021-05-16
                         </span>
                     </div>
                 
@@ -212,7 +212,89 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p><img src="/img/api_level.png" alt="API"></p>
+                <h1 id="android-版本号及对应的版本名">Android 版本号及对应的版本名</h1>
+<p>版本号	      版本名	                中文名<br>
+API R	    android R	<br>
+API Q	    android Q	<br>
+API 28	    android 9.0             Pie	馅饼<br>
+API 27	    android 8.1             Oreo	奥利奥<br>
+API 26	    android 8.0             Oreo	奥利奥<br>
+API 25	    android 7.1             Nougat	牛轧糖<br>
+API 24	    android 7.0             Nougat	牛轧糖<br>
+API 23	    android 6.0             Marshmallow	棉花糖<br>
+API 22	    android 5.1             Lollipop	棒棒糖<br>
+API 21	    android 5.0             Lollipop	棒棒糖<br>
+API 20	    android 4.4W             KitKat	奇巧巧克力棒<br>
+API 19	    android 4.4             KitKat	奇巧巧克力棒<br>
+API 18	    android 4.3             Jelly Bean	果冻豆<br>
+API 17	    android 4.2             Jelly Bean	果冻豆<br>
+API 16	    android 4.1             Jelly Bean	果冻豆<br>
+API 15	    android 4.0.            3 ~4.0.4 Ice Cream Sandwich	冰淇淋三明治<br>
+API 14	    android 4.0             ~ 4.0.2 Ice Cream Sandwich	冰淇淋三明治<br>
+API 13	    android 3.2             Honeycomb	蜂巢<br>
+API 12	    android 3.1             Honeycomb	蜂巢<br>
+API 11	    android 3.0             Honeycomb	蜂巢<br>
+API 10	    android 2.3.3 ~ 2.3.7   Gingerbread	姜饼<br>
+API 9	    android 2.3~2.3.2       Gingerbread	姜饼<br>
+API 8	    android 2.2~2.2.3       Froyo	冻酸奶<br>
+API 7	    android 2.1             Éclair	闪电泡芙<br>
+API 6	    android 2.0.1           Éclair	闪电泡芙<br>
+API 5	    android2.0              Éclair	闪电泡芙<br>
+API 4	    android 1.6             Donut	甜甜圈<br>
+API 3	    android 1.5             ICupcake	纸杯蛋糕<br>
+API 2	    android 1.1	<br>
+API 1	    android 1.0</p>
+<h2 id="50">5.0：</h2>
+<pre><code>ART虚拟机
+  Material Design
+</code></pre>
+<h2 id="60">6.0：</h2>
+<pre><code>动态权限 运行时权限机制-&gt;需要动态申请权限
+移除HttpClient
+</code></pre>
+<h2 id="70">7.0：</h2>
+<pre><code>共享文件需要使用FileProvider（读取照片），
+隐式广播需要动态注册  
+apk V2签名
+支持java8
+</code></pre>
+<h2 id="80">8.0：</h2>
+<pre><code>前台服务需要展示通知  
+通知增加了渠道，通知权限开关
+ 移除了所有的隐式广播接收器，必须动态注册（存活才可收到）
+ 自适应启动图标 
+ 安装apk  REQUEST_INSTALL_PACKAGES权限  
+悬浮窗适配（type 必须用 TYPE_APPLICATION_OVERLAY，还需要声明权限）
+</code></pre>
+<h2 id="90">9.0：</h2>
+<pre><code>增加了刘海屏适配，
+不允许调用hide api，非 SDK 接口使用限制，不管是经过调用、反射仍是JNI等方式，开发者都没法对非 SDK 接口进行访问
+限制明文流量的网络请求 http
+利用 Wi-Fi RTT 进行室内定位
+</code></pre>
+<h2 id="100">10.0</h2>
+<pre><code>暗黑模式 
+后台使用定位权限需要单独申请  
+限制程序访问剪贴板
+应用黑盒Scoped Storage（分区存储，非强制）
+设备唯一标示符需兼容
+后台打开Activity 需兼容
+非 SDK 接口限制 需兼容
+</code></pre>
+<h2 id="110">11.0</h2>
+<pre><code>强制执行分区存储 一次性权限  
+强制使用V2签名
+系统安装应用列表可见性
+适配Android11： [https://blog.csdn.net/qq_17766199/article/details/115351949](https://blog.csdn.net/qq_17766199/article/details/115351949)
+</code></pre>
+<h3 id="后台启动activity限制说明">后台启动Activity限制说明</h3>
+<p>简单解释就是应用处于后台时，没法启动Activity。由于此项行为变动适用于在Android 10上运行的全部应用，因此这一限制致使最明显的问题就是点击推送信息时，有些应用没法进行正常的跳转（具体的实现问题致使）。因此针对这类问题，<br>
+全屏intent，注意设置最高优先级和添加USE_FULL_SCREEN_INTENT权限，这是一个普通权限。好比微信来语音或者视频通话时，弹出的接听页面就是使用这一功能。</p>
+<h3 id="参考链接">参考链接：</h3>
+<ul>
+<li>Android版本差异适配方案(5.0-11.0): <a href="https://blog.csdn.net/yinhaide/article/details/103295050" target="_blank" rel="noopener">https://blog.csdn.net/yinhaide/article/details/103295050</a></li>
+<li>缩略简约版：<a href="https://blog.csdn.net/qq_36707431/article/details/103383100" target="_blank" rel="noopener">https://blog.csdn.net/qq_36707431/article/details/103383100</a></li>
+</ul>
 
                 
 
@@ -220,13 +302,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/Android5-0-11各版本新特性/" data-toggle="tooltip" data-placement="top" title="Android5.0~11各版本新特性">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/浅谈Android前台service/" data-toggle="tooltip" data-placement="top" title="Android前台service和Notification">Next Post &rarr;</a>
+                            <a href="/article/API对应表/" data-toggle="tooltip" data-placement="top" title="API对应表">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -273,6 +351,24 @@
             
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#android-版本号及对应的版本名"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Android &#x7248;&#x672C;&#x53F7;&#x53CA;&#x5BF9;&#x5E94;&#x7684;&#x7248;&#x672C;&#x540D;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#50"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">5.0&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#60"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">6.0&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#70"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">7.0&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#80"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">8.0&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#90"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">9.0&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#100"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">10.0</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#110"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">11.0</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#后台启动activity限制说明"><span class="toc-nav-number">1.7.1.</span> <span class="toc-nav-text">&#x540E;&#x53F0;&#x542F;&#x52A8;Activity&#x9650;&#x5236;&#x8BF4;&#x660E;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#参考链接"><span class="toc-nav-number">1.7.2.</span> <span class="toc-nav-text">&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;</span></a></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
 
                 
             <!-- Sidebar Container -->
