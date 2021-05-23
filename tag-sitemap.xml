@@ -58,13 +58,6 @@
     </url>
 
     <url>
-        <loc>http://pengxiaoyong.cn/tags/%E9%9D%A2%E8%AF%95/</loc>
-        <lastmod>2019-11-14T03:17:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://pengxiaoyong.cn/tags/RecycleView/</loc>
         <lastmod>2019-11-14T03:17:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -143,7 +136,14 @@
 
     <url>
         <loc>http://pengxiaoyong.cn/tags/Android/</loc>
-        <lastmod>2021-05-16T15:15:38.972Z</lastmod>
+        <lastmod>2021-05-23T03:09:53.250Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pengxiaoyong.cn/tags/%E9%9D%A2%E8%AF%95/</loc>
+        <lastmod>2021-05-23T03:59:48.705Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

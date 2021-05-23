@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Android5.0~11各版本新特性 - 彭晓勇 | Blog
+          聊聊面试，一些经验总结 - 彭晓勇 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://pengxiaoyong.cn/article/Android5-0-11各版本新特性/">
+    <link rel="canonical" href="http://pengxiaoyong.cn/article/转载-聊聊面试/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -88,14 +88,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Android" title="Android">Android</a>
+                              <a class="tag" href="/tags/#面试" title="面试">面试</a>
                             
                         </div>
-                        <h1>Android5.0~11各版本新特性</h1>
+                        <h1>聊聊面试，一些经验总结</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by JamesPxy on
-                            2021-05-16
+                            2021-05-23
                         </span>
                     </div>
                 
@@ -212,89 +212,113 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="android-版本号及对应的版本名">Android 版本号及对应的版本名</h1>
-<p>版本号	      版本名	                中文名<br>
-API R	    android R	<br>
-API Q	    android Q	<br>
-API 28	    android 9.0             Pie	馅饼<br>
-API 27	    android 8.1             Oreo	奥利奥<br>
-API 26	    android 8.0             Oreo	奥利奥<br>
-API 25	    android 7.1             Nougat	牛轧糖<br>
-API 24	    android 7.0             Nougat	牛轧糖<br>
-API 23	    android 6.0             Marshmallow	棉花糖<br>
-API 22	    android 5.1             Lollipop	棒棒糖<br>
-API 21	    android 5.0             Lollipop	棒棒糖<br>
-API 20	    android 4.4W             KitKat	奇巧巧克力棒<br>
-API 19	    android 4.4             KitKat	奇巧巧克力棒<br>
-API 18	    android 4.3             Jelly Bean	果冻豆<br>
-API 17	    android 4.2             Jelly Bean	果冻豆<br>
-API 16	    android 4.1             Jelly Bean	果冻豆<br>
-API 15	    android 4.0.            3 ~4.0.4 Ice Cream Sandwich	冰淇淋三明治<br>
-API 14	    android 4.0             ~ 4.0.2 Ice Cream Sandwich	冰淇淋三明治<br>
-API 13	    android 3.2             Honeycomb	蜂巢<br>
-API 12	    android 3.1             Honeycomb	蜂巢<br>
-API 11	    android 3.0             Honeycomb	蜂巢<br>
-API 10	    android 2.3.3 ~ 2.3.7   Gingerbread	姜饼<br>
-API 9	    android 2.3~2.3.2       Gingerbread	姜饼<br>
-API 8	    android 2.2~2.2.3       Froyo	冻酸奶<br>
-API 7	    android 2.1             Éclair	闪电泡芙<br>
-API 6	    android 2.0.1           Éclair	闪电泡芙<br>
-API 5	    android2.0              Éclair	闪电泡芙<br>
-API 4	    android 1.6             Donut	甜甜圈<br>
-API 3	    android 1.5             ICupcake	纸杯蛋糕<br>
-API 2	    android 1.1	<br>
-API 1	    android 1.0</p>
-<h2 id="50">5.0：</h2>
-<pre><code>ART虚拟机
-  Material Design
-</code></pre>
-<h2 id="60">6.0：</h2>
-<pre><code>动态权限 运行时权限机制-&gt;需要动态申请权限
-移除HttpClient
-</code></pre>
-<h2 id="70">7.0：</h2>
-<pre><code>共享文件需要使用FileProvider（读取照片），
-隐式广播需要动态注册  
-apk V2签名
-支持java8
-</code></pre>
-<h2 id="80">8.0：</h2>
-<pre><code>前台服务需要展示通知  
-通知增加了渠道，通知权限开关
- 移除了所有的隐式广播接收器，必须动态注册（存活才可收到）
- 自适应启动图标 
- 安装apk  REQUEST_INSTALL_PACKAGES权限  
-悬浮窗适配（type 必须用 TYPE_APPLICATION_OVERLAY，还需要声明权限）
-</code></pre>
-<h2 id="90">9.0：</h2>
-<pre><code>增加了刘海屏适配，
-不允许调用hide api，非 SDK 接口使用限制，不管是经过调用、反射仍是JNI等方式，开发者都没法对非 SDK 接口进行访问
-限制明文流量的网络请求 http
-利用 Wi-Fi RTT 进行室内定位
-</code></pre>
-<h2 id="100">10.0</h2>
-<pre><code>暗黑模式 
-后台使用定位权限需要单独申请  
-限制程序访问剪贴板
-应用黑盒Scoped Storage（分区存储，非强制）
-设备唯一标示符需兼容
-后台打开Activity 需兼容
-非 SDK 接口限制 需兼容
-</code></pre>
-<h2 id="110">11.0</h2>
-<pre><code>强制执行分区存储 一次性权限  
-强制使用V2签名
-系统安装应用列表可见性
-适配Android11： [https://blog.csdn.net/qq_17766199/article/details/115351949](https://blog.csdn.net/qq_17766199/article/details/115351949)
-</code></pre>
-<h2 id="后台启动activity限制说明">后台启动Activity限制说明</h2>
-<p>简单解释就是应用处于后台时，没法启动Activity。由于此项行为变动适用于在Android 10上运行的全部应用，因此这一限制致使最明显的问题就是点击推送信息时，有些应用没法进行正常的跳转（具体的实现问题致使）。因此针对这类问题，<br>
-全屏intent，注意设置最高优先级和添加USE_FULL_SCREEN_INTENT权限，这是一个普通权限。好比微信来语音或者视频通话时，弹出的接听页面就是使用这一功能。</p>
-<h3 id="参考链接">参考链接：</h3>
+                <p>声明：本篇文章内容除了我自己的面试经验总结，大部分来自于“徐宜生”前辈的“面试者说”系列，我对其中精华内容做了提炼和总结，日后准备面试、平常工作中或者面试他人都可以借鉴其中的一些建议。</p>
+<h2 id="1浅谈面试">1.浅谈面试</h2>
 <ul>
-<li>Android版本差异适配方案(5.0-11.0): <a href="https://blog.csdn.net/yinhaide/article/details/103295050" target="_blank" rel="noopener">https://blog.csdn.net/yinhaide/article/details/103295050</a></li>
-<li>缩略简约版：<a href="https://blog.csdn.net/qq_36707431/article/details/103383100" target="_blank" rel="noopener">https://blog.csdn.net/qq_36707431/article/details/103383100</a></li>
+<li>
+<p>首先，面试是一个双向的过程，你在面试别人的时候，实际上你也在被别人面试，怎么说呢，一般来说，团队在招人的时候，都会让一些比较资深的成员来作为面试官，面试者在跟面试官交流的时候，实际上就能大概了解到互相的一个技术水平、沟通能力等等，对于面试者来说，面试官的水平，几乎代表着团队的水平，如果在面试者面前丢了人，大概率团队也是比较丢人的，所以，双向选择面前，人人平等。</p>
+</li>
+<li>
+<p>要get面试官的言外之意：面试官的问题，通常都是带有很强的目的性的，听懂问题的言外之意，精准的戳中要害，比长篇大论讲一堆不着边际的答案要好的多。</p>
+</li>
+<li>
+<p>运气：运气是实力的一部分，但在实力才是我们可控的部分，运气或者说机会都是留给有准备的人的。</p>
+</li>
+<li>
+<p>积累在平时，切忌临时抱佛脚，背诵“八股文”</p>
+</li>
+<li>
+<p>面试就是一个跟同行进行交流的过程，也是向同行分享自己技术栈的一个过程，无需紧张和有压力，把自己深入研究过的，擅长的，经验和体会拿出来分享和交流就OK</p>
+</li>
 </ul>
+<h2 id="2面试者能力如何体现">2.面试者能力如何体现</h2>
+<ul>
+<li>
+<p>打铁还需自身硬，当你足够强大时，全世界都会给你让路（毒鸡汤）。对程序员来说，实力的三大组成部分——经验、技巧和潜力：</p>
+</li>
+<li>
+<p>经验<br>
+经验并不等价于工作年限，它是你实力的一个投影，多思考，多总结，才能让经验增加，重复的体力劳动，增加的只是你的年限，而不是经验。</p>
+</li>
+<li>
+<p>技巧<br>
+技巧来源于有效的经验，它是你经验的精华，一个面试者的技巧越丰富，越熟练，那么会反过来让他的经验变得更加丰富。技巧一般分为两个部分——内功和外功。内功主要是对技巧深度的研究程度，表现在你对一个疑难问题的排查、一个复杂需求的实现，而外功，表现在你技巧的广度，对解决方案提出最优技术选型，架构的设计能力等方面。</p>
+</li>
+<li>
+<p>潜力<br>
+潜力不错，可能是对你能力不足的一个美化修辞，这个一定要注意区分！<br>
+真正的潜力，主要体现在5年以内的求职者，再之后的潜力，就转化为经验和技巧了，工作的前几年，经验有限，这时候一个人的学习能力和思维能力，就是他潜力的体现。公司实际上是非常愿意招有潜力的求职者的，一方面可以以很便宜的价格，招到不错的打工人，另一方面，团队可以小小的花力气将他的潜力激发出来，这样相当于获取了一个经验技巧不错的求职者。</p>
+</li>
+<li>
+<p>那么如何让自己显得有潜力呢？<br>
+腹有诗书气自华，潜力主要来源于你的思考力和思维力，这些能力会潜移默化的让你变得有潜力，所以，平时多思考，多阅读，才能不断提高自己的潜力。</p>
+<p>在面试过程中，潜力具体表现在下面几点：<br>
+– 学习能力：要体现出你的学习能力，这件事情虽然不会，但是可以快速学习，借助类似的知识，触类旁通，快速上手。<br>
+– 逻辑思维能力：做事情安排合理，分析问题有迹可循，解决问题能抓住重点。</p>
+</li>
+</ul>
+<h2 id="3关于简历">3.关于简历</h2>
+<h3 id="亮点-亮点">亮点、亮点</h3>
+<ul>
+<li>
+<p>围绕经验、技巧、潜力三部分展开写简历</p>
+</li>
+<li>
+<p>除了项目经历之外，还有很多东西可以给你增加亮点，这里简单的列举几个：<br>
+– GitHub开源项目：这能显示你的技巧，特别是Star多的项目<br>
+– 坚持多年的习惯：例如坚持跑步，这也是你潜力的表现<br>
+– 写博客：不管写的博客有多少人看，这就是你的经验宝库<br>
+– 领导力，团队协作力：虽然项目普通，但是你能表现出一定的领导力，或者能改善协作流程，增加效率，这就是亮点<br>
+– 大厂的经验：大厂，意味着业务成熟稳定，如果你能学习到某个平台的流程和架构，这也是亮点<br>
+– 兴趣爱好，也可以写，比如喜欢运动，参加马拉松并获奖这些都是OK的</p>
+</li>
+</ul>
+<h3 id="严谨">严谨</h3>
+<p>写好的简历多review几遍，什么错别字，笔误，格式问题，就不要丢人了，减分太厉害。<br>
+同时，务必保证简历的真实性，天网恢恢疏而不漏，觉得不好的经历，可以不写，如果HR有问，再如实告知，但不能造假，否则就算能力再强，也很容易被直接Pass。</p>
+<h3 id="项目经历">项目经历</h3>
+<ul>
+<li>项目经历是简历中的重要组成，首先，要筛选一些你做的、参与的，比较具有代表性和复杂度的项目，一句话简述项目背景，目的是要突出项目的复杂度和难度，然后描述你在项目中的角色，重点突出通过你的能力对项目的贡献，最后升华主题，进行总结，突出项目的成就、影响和意义，最好有数字进行衬托。举个例子：<br>
+— 为了解决移动端开发设计走查问题多，视觉开发耗时长，还原度不够的问题，在XXXUI组件化项目中，与设计一起规划了项目中的UI组件，并进行了拆解和分析，我根据视觉的规范文档，设计了Android的UI组件化架构，创建了一套标准的视觉规范和客户端开发规范，并在项目中应用，目前在项目中覆盖率在90%以上，提高了近60%的开发效率，同时让UI走查的问题大幅减少，提高了合作效率。</li>
+<li>介绍一个项目，需要从背景开始，讲清楚这个项目的目的是什么，为了解决什么痛点，你在这个项目中起到了怎样的作用，方案设计有何亮点，技术选型有何考虑，角色分配如何安排，最终的结果如何，得到了什么成效，套用这样的模板，就可以让面试官比较清楚的了解你认为值得讲解的项目了。</li>
+<li>项目经历不需要多，而在于精，只有能突出「经验——技巧——潜力」的项目，才有写上简历的必要。一些很平常很普通的项目，如果不是实在没有可写的内容，就建议不要出现在简历上了，另外，突出重复能力的项目，只写一个最重要的就可以了。</li>
+</ul>
+<h3 id="可量化-可对比">可量化 可对比</h3>
+<p>为了给面试官营造一个具体的概念，你的很多亮点不能是泛泛而谈的，毕竟面试官不是你们公司的，很多概念并不是很清楚，太笼统的描述，没办法很好的体现你的价值，例如：将App的启动速度大幅提高，这样写冲击力就显得不够，如果加入具体的量化指标，例如：将App的启动速度与上个版本相比提高了100%，加上量化数据后，视觉效果立马不一样了。<br>
+这类的量化数据有很多，例如：</p>
+<ul>
+<li>页面数据PV、UV，日活、月活等</li>
+<li>付费率</li>
+<li>程序运行效率</li>
+<li>编译速度</li>
+<li>各种指标的建立</li>
+<li>启动速度</li>
+<li>渲染效率</li>
+<li>算法优化</li>
+<li>流程优化<br>
+要学会从你的工作中挖掘有价值的数据，来丰富你的KPI（哦，不对，是项目成果）</li>
+</ul>
+<h3 id="展示学习能力">展示学习能力</h3>
+<ul>
+<li>体现学习能力的最简单的两个方法就是：<br>
+– 文字产出<br>
+文字产出会比掌握知识点更进一步，视频产出、分享，则更加更进一步，所以这一点是很能体现出你的学习能力的，输出了多少篇文章，在XXX视频网站上开课，在组内、大会上进行XXX分享，这都是你学习能力的体现。<br>
+– 解决问题<br>
+解决问题的能力也是你学习能力的体现，在简历中，可以简单的讲解曾经遇到的一些比较复杂的问题，以及简单的介绍，但不用花太大篇幅，勾起面试官的兴趣即可，重点在面试的时候阐述你的解决问题的过程。</li>
+</ul>
+<h2 id="4其它">4.其它</h2>
+<ul>
+<li>作为被面试者，有几个点需要注意：<br>
+– 场景化问题解决方案，突出解决问题的思路和能力<br>
+– 技术点不一定越多越好，要引导去到自己擅长的点<br>
+– 不懂或者不深入的技术点明确说不知道！！<br>
+– 对于简历上自己写的东西一定要熟练掌握，能做到灵活应对关于项目经历和技术栈的各种角度提问。<br>
+– 积累在平时，切忌投机取巧，临时抱佛脚，要脚踏实地，日常多写技术博客，多做总结，多实践！</li>
+</ul>
+<h2 id="5参考链接">5.参考链接：</h2>
+<p>– <a href="https://mp.weixin.qq.com/s/OU4otQMsXsRyOGoaU9F38A" target="_blank" rel="noopener">面试者说1</a><br>
+– <a href="https://mp.weixin.qq.com/s/yBJqTqJSZyEciGysskKtwQ" target="_blank" rel="noopener">面试者说2</a><br>
+– <a href="https://mp.weixin.qq.com/s/5B7fhm96rY1So1YqSzmq-Q" target="_blank" rel="noopener">面试者说3</a></p>
 
                 
 
@@ -302,13 +326,9 @@ apk V2签名
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/转载-聊聊面试/" data-toggle="tooltip" data-placement="top" title="聊聊面试，一些经验总结">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/API对应表/" data-toggle="tooltip" data-placement="top" title="API对应表">Next Post &rarr;</a>
+                            <a href="/article/Android5-0-11各版本新特性/" data-toggle="tooltip" data-placement="top" title="Android5.0~11各版本新特性">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -368,7 +388,7 @@ apk V2签名
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#android-版本号及对应的版本名"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Android &#x7248;&#x672C;&#x53F7;&#x53CA;&#x5BF9;&#x5E94;&#x7684;&#x7248;&#x672C;&#x540D;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#50"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">5.0&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#60"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">6.0&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#70"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">7.0&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#80"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">8.0&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#90"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">9.0&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#100"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">10.0</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#110"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">11.0</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#后台启动activity限制说明"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">&#x540E;&#x53F0;&#x542F;&#x52A8;Activity&#x9650;&#x5236;&#x8BF4;&#x660E;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#参考链接"><span class="toc-nav-number">1.8.1.</span> <span class="toc-nav-text">&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1浅谈面试"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1.&#x6D45;&#x8C08;&#x9762;&#x8BD5;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2面试者能力如何体现"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2.&#x9762;&#x8BD5;&#x8005;&#x80FD;&#x529B;&#x5982;&#x4F55;&#x4F53;&#x73B0;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3关于简历"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3.&#x5173;&#x4E8E;&#x7B80;&#x5386;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#亮点-亮点"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">&#x4EAE;&#x70B9;&#x3001;&#x4EAE;&#x70B9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#严谨"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">&#x4E25;&#x8C28;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#项目经历"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">&#x9879;&#x76EE;&#x7ECF;&#x5386;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#可量化-可对比"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">&#x53EF;&#x91CF;&#x5316; &#x53EF;&#x5BF9;&#x6BD4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#展示学习能力"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">&#x5C55;&#x793A;&#x5B66;&#x4E60;&#x80FD;&#x529B;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4其它"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4.&#x5176;&#x5B83;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5参考链接"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5.&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;</span></a></li></ol>
         
         </div>
       </aside>
@@ -388,7 +408,7 @@ apk V2签名
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Android" title="Android">Android</a>
+                          <a class="tag" href="/tags/#面试" title="面试">面试</a>
                         
                     </div>
                 </section>

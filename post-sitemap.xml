@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>http://pengxiaoyong.cn/article/%E8%BD%AC%E8%BD%BD-%E8%81%8A%E8%81%8A%E9%9D%A2%E8%AF%95/</loc>
+        <lastmod>2021-05-23T03:59:48.705Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pengxiaoyong.cn/article/API%E5%AF%B9%E5%BA%94%E8%A1%A8/</loc>
+        <lastmod>2021-05-23T03:09:53.250Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pengxiaoyong.cn/article/Android5-0-11%E5%90%84%E7%89%88%E6%9C%AC%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
-        <lastmod>2021-05-16T15:15:38.972Z</lastmod>
+        <lastmod>2021-05-17T00:33:20.149Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -41,14 +57,6 @@
     <url>
         <loc>http://pengxiaoyong.cn/Android/%E6%B5%85%E8%B0%88AIDL%E8%B7%A8%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1/</loc>
         <lastmod>2021-04-24T01:54:37.296Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://pengxiaoyong.cn/article/API%E5%AF%B9%E5%BA%94%E8%A1%A8/</loc>
-        <lastmod>2021-04-22T14:09:01.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
