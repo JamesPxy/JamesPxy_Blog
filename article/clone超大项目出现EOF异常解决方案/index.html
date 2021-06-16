@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          解决git clone工程慢问题 - 彭晓勇 | Blog
+          git clone超大项目出现EOF异常解决方案 - 彭晓勇 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://pengxiaoyong.cn/article/国内访问github慢与git clone工程慢的解决方法/">
+    <link rel="canonical" href="http://pengxiaoyong.cn/article/clone超大项目出现EOF异常解决方案/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -91,11 +91,11 @@
                               <a class="tag" href="/tags/#git" title="git">git</a>
                             
                         </div>
-                        <h1>解决git clone工程慢问题</h1>
+                        <h1>git clone超大项目出现EOF异常解决方案</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by JamesPxy on
-                            2017-07-10
+                            2021-06-16
                         </span>
                     </div>
                 
@@ -212,29 +212,27 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="1-快速访问github网站">1. 快速访问github网站</h2>
-<h3 id="修改host文件配置增加映射">修改host文件配置，增加映射</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-       浏览器访问IPAddress.com</span><br><span class="line">- </span><br><span class="line">-       分别获得github.com和github.global.ssl.fastly.net对应的ip</span><br><span class="line">- </span><br><span class="line">-       修改本地host</span><br><span class="line">- </span><br><span class="line">-       打开Host文件   c:\windows\system32\drivers\etc</span><br><span class="line">- </span><br><span class="line">-       增加host映射</span><br><span class="line"></span><br><span class="line">    eg:</span><br><span class="line">    	    151.101.44.249 global-ssl.fastly.Net</span><br><span class="line">    		192.30.253.113 github.com</span><br></pre></td></tr></table></figure>
-<h3 id="更新dns缓存">更新DNS缓存</h3>
-<h4 id="刷新dns缓存的方法一">刷新DNS缓存的方法一：</h4>
-<p>首先进入命令提示符下（开始——运行——cmd）；</p>
-<p>先运行:ipconfig /displaydns这个命令,查看一下本机已经缓存了那些的dns信息的,然后输入下面的命令</p>
-<pre><code>ipconfig /flushdns
-</code></pre>
-<p>这时本机的dns缓存信息已经清空了,我们可以再次输入第一次输入的命令来看一下,</p>
-<pre><code>ipconfig /displaydns
-</code></pre>
-<h4 id="刷新dns缓存的方法二">刷新DNS缓存的方法二：</h4>
-<p>直接禁用网卡再启用网卡，这样也可以</p>
-<h3 id="2git-clone快速">2.git clone快速</h3>
-<ul>
-<li>git clone默认下载项目的完整历史版本，如果只关心代码的最新版则可以执行以下clone命令（ —depth==1 表示最新的版本，浅复制，数据量小）：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/aaronshang/iOSPro.git</span><br></pre></td></tr></table></figure>
-<ul>
-<li>若想继续获取完整历史信息</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch —unshallow</span><br></pre></td></tr></table></figure>
+                <p>最近遇到10多个G的大项目需要clone代码，直接根本拉不下来，会出现EOF异常，第一次为了拉项目代码犯愁，这里总结一下clone大项目解决方案。</p>
+<h2 id="遇到异常如下">遇到异常如下：</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">remote: Compressing objects:   0% (3902/531163)   </span><br><span class="line">remote: Compressing objects: 100% (531163/531163), <span class="keyword">done</span>.</span><br><span class="line">error: RPC failed; curl 18 transfer closed with outstanding <span class="built_in">read</span> data remaining</span><br><span class="line">fetch-pack: unexpected disconnect <span class="keyword">while</span> reading sideband packet</span><br><span class="line">fatal: early EOF</span><br><span class="line">fatal: index-pack failed</span><br></pre></td></tr></table></figure>
+<h2 id="解决方案如下">解决方案如下：</h2>
+<h3 id="1-修改git基本配置">1. 修改git基本配置</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 1. compression 是压缩的意思，从 <span class="built_in">clone</span> 的终端输出就知道，服务器会压缩目标文件，然后传输到客户端，客户端再解压。</span><br><span class="line">// 取值为 [-1, 9]，-1 以 zlib 为默认压缩库，0 表示不进行压缩，1…9 </span><br><span class="line">// 是压缩速度与最终获得文件大小的不同程度的权衡，数字越大，压缩越慢，当然得到的文件会越小。</span><br><span class="line"></span><br><span class="line">$ git config --<span class="built_in">local</span> core.compression -1</span><br><span class="line"></span><br><span class="line">// 2. 增加git的缓存大小  将http.postBuffer设置的尽量大</span><br><span class="line"></span><br><span class="line">$ git config --<span class="built_in">local</span> http.postBuffer 1048576000 (1G)</span><br><span class="line"></span><br><span class="line">// 3. 设置低速等待时长  单位 秒</span><br><span class="line"></span><br><span class="line">$ git config --<span class="built_in">local</span>  http.lowSpeedTime 999999</span><br></pre></td></tr></table></figure>
+<h3 id="2-分段拉代码">2. 分段拉代码</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> --depth=1</span><br><span class="line"><span class="comment"># 说明：可以看到我们只克隆下包含最近一次commit的一个分支，这样这个项目文件就不会很大</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 而如果我们想只克隆某个指定分支的最近一次commit，可以使用下面命令</span></span><br><span class="line">$ git <span class="built_in">clone</span> --depth 1  --branch english URL</span><br></pre></td></tr></table></figure>
+<p>总结：用 git clone --depth=1 的好处是限制 clone 的深度，不会下载 Git 协作的历史记录，这样可以大大加快克隆的速度<br>
+depth用于指定克隆深度，为1即表示只克隆最近一次commit<br>
+适合用 git clone --depth=1 的场景：你只是想clone最新版本来使用或学习，而不是参与整个项目的开发工作</p>
+<p>如果我们想把其他远程分支(如master)也克隆到本地，我们需要用下面的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote <span class="built_in">set</span>-branches origin <span class="string">'remote_branch_name'</span></span><br><span class="line">$ git fetch --depth 1 origin remote_branch_name</span><br><span class="line">$ git checkout remote_branch_name</span><br></pre></td></tr></table></figure>
+<p>转换存储库为完整存储库，此命令用于将浅层转换为完整的存储库，消除浅层存储库所施加的所有限制。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git pull --unshallow</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">git fetch  --unshallow</span><br></pre></td></tr></table></figure>
+<p>其它常用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> --depth 1 https://github.com/dogescript/xxxxxxx.git</span><br><span class="line">$ git remote <span class="built_in">set</span>-branches origin <span class="string">'remote_branch_name'</span></span><br><span class="line">$ git fetch --depth 1 origin release</span><br><span class="line">$ git checkout remote_branch_name</span><br><span class="line"></span><br><span class="line"><span class="variable">$git</span> pull --rebase origin release</span><br></pre></td></tr></table></figure>
+<h2 id="mac升级到big-sur之后出现git不可用问题解决方案">mac升级到Big  Sur之后出现git不可用问题解决方案</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 下载缺失命令行工具</span><br><span class="line">$ xcode-select --install</span><br><span class="line"></span><br><span class="line">2. 根据提示切换环境</span><br><span class="line">$ sudo xcode-select --switch /Library/Developer/CommandLineTools/</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接">参考链接：</h2>
+<p>– <a href="https://blog.csdn.net/weixin_45787652/article/details/107628513" target="_blank" rel="noopener">https://blog.csdn.net/weixin_45787652/article/details/107628513</a></p>
 
                 
 
@@ -242,13 +240,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/Android/ListView根据内容适配显示高度/" data-toggle="tooltip" data-placement="top" title="ListView根据内容适配显示高度">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/Java/2017-4-14-Timer的schedule和scheduleAtFixedRate方法的区别/" data-toggle="tooltip" data-placement="top" title="Timer的schedule和scheduleAtFixedRate的区别">Next Post &rarr;</a>
+                            <a href="/article/转载-聊聊面试/" data-toggle="tooltip" data-placement="top" title="聊聊面试，一些经验总结">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -308,7 +302,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-快速访问github网站"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. &#x5FEB;&#x901F;&#x8BBF;&#x95EE;github&#x7F51;&#x7AD9;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#修改host文件配置增加映射"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">&#x4FEE;&#x6539;host&#x6587;&#x4EF6;&#x914D;&#x7F6E;&#xFF0C;&#x589E;&#x52A0;&#x6620;&#x5C04;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#更新dns缓存"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">&#x66F4;&#x65B0;DNS&#x7F13;&#x5B58;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#刷新dns缓存的方法一"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">&#x5237;&#x65B0;DNS&#x7F13;&#x5B58;&#x7684;&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#刷新dns缓存的方法二"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">&#x5237;&#x65B0;DNS&#x7F13;&#x5B58;&#x7684;&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2git-clone快速"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">2.git clone&#x5FEB;&#x901F;</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#遇到异常如下"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x9047;&#x5230;&#x5F02;&#x5E38;&#x5982;&#x4E0B;&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#解决方案如下"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x5982;&#x4E0B;&#xFF1A;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-修改git基本配置"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. &#x4FEE;&#x6539;git&#x57FA;&#x672C;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-分段拉代码"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. &#x5206;&#x6BB5;&#x62C9;&#x4EE3;&#x7801;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#mac升级到big-sur之后出现git不可用问题解决方案"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">mac&#x5347;&#x7EA7;&#x5230;Big  Sur&#x4E4B;&#x540E;&#x51FA;&#x73B0;git&#x4E0D;&#x53EF;&#x7528;&#x95EE;&#x9898;&#x89E3;&#x51B3;&#x65B9;&#x6848;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#参考链接"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;</span></a></li></ol>
         
         </div>
       </aside>
